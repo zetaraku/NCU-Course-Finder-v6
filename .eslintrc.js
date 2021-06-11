@@ -20,4 +20,13 @@ module.exports = {
     'no-restricted-syntax': 'off',
     'arrow-parens': ['error', 'as-needed'],
   },
+  settings: {
+    'import/resolver': {
+      alias: {
+        map: [
+          ['@', './src'],
+        ],
+      },
+    },
+  },
 };
