@@ -3,6 +3,7 @@ import router from './router';
 import App from './App.vue';
 import 'bootstrap/dist/js/bootstrap';
 import 'bootstrap/scss/bootstrap.scss';
+import 'bootstrap-icons/font/bootstrap-icons.css';
 
 const app = Vue.createApp(App);
 
