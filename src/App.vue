@@ -33,6 +33,7 @@
               >
                 <router-link
                   class="nav-link"
+                  :class="{ 'active': $route.name === link.to.name }"
                   :to="link.to"
                 >
                   {{ link.text }}
@@ -83,10 +84,10 @@
 export default {
   setup() {
     const links = [
-      { text: '選課說明', to: '/' },
-      { text: '課程查詢', to: '/' },
-      { text: '我的課表', to: '/' },
-      { text: '關於本站', to: '/' },
+      { text: '選課說明', to: { name: 'information' } },
+      { text: '課程查詢', to: { name: 'http-404' } },
+      { text: '我的課表', to: { name: 'http-404' } },
+      { text: '關於本站', to: { name: 'http-404' } },
     ];
 
     return {
