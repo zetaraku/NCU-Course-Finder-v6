@@ -53,10 +53,7 @@
       <small>
         <div>
           Made by
-          <a
-            href="https://github.com/zetaraku"
-            target="_blank"
-          >zetaraku</a>
+          <a href="https://github.com/zetaraku">zetaraku</a>
           with Vite + Vue 3 + Bootstrap 5
         </div>
         <div>
@@ -64,7 +61,6 @@
           <a
             class="ms-1"
             href="https://github.com/zetaraku/NCU-Course-Finder-v6"
-            target="_blank"
           >
             <i class="bi bi-github" />
           </a>

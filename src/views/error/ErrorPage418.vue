@@ -7,7 +7,6 @@
       <a
         class="btn btn-outline-secondary"
         href="https://paypal.me/zetaraku"
-        target="_blank"
       >
         Maybe you can buy me a coffee instead!
         <i class="bi bi-cup ms-1" />
