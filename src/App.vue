@@ -5,15 +5,41 @@
       style="background-color: DarkCyan; z-index: 1020;"
     >
       <nav
-        class="navbar navbar-dark"
+        class="navbar navbar-dark navbar-expand-md"
       >
         <div class="container">
+          <a class="navbar-brand me-0 cursor-pointer">
+            <i class="bi mx-3 fs-3 bi-compass" />
+          </a>
           <router-link
             class="navbar-brand"
             to="/"
           >
             NCU Course Finder v6
           </router-link>
+          <button
+            class="navbar-toggler position-relative"
+            data-bs-toggle="collapse"
+            data-bs-target=".navbar-collapse"
+          >
+            <span class="navbar-toggler-icon" />
+          </button>
+          <div class="navbar-collapse collapse justify-content-end">
+            <ul class="navbar-nav text-center">
+              <li
+                v-for="(link, i) in links"
+                :key="i"
+                class="nav-item py-1"
+              >
+                <router-link
+                  class="nav-link"
+                  :to="link.to"
+                >
+                  {{ link.text }}
+                </router-link>
+              </li>
+            </ul>
+          </div>
         </div>
       </nav>
     </header>
@@ -50,6 +76,18 @@
 
 <script>
 export default {
+  setup() {
+    const links = [
+      { text: '選課說明', to: '/' },
+      { text: '課程查詢', to: '/' },
+      { text: '我的課表', to: '/' },
+      { text: '關於本站', to: '/' },
+    ];
+
+    return {
+      links,
+    };
+  },
 };
 </script>
 
