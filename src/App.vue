@@ -68,6 +68,15 @@
           >
             <i class="bi bi-github" />
           </a>
+          <a
+            class="ms-2"
+            href="https://www.free-counter.jp/"
+          >
+            <img
+              :src="ENV.VITE_FREE_COUNTER_IMG_SRC"
+              alt="アクセスカウンター"
+            >
+          </a>
         </div>
       </small>
     </footer>
@@ -86,6 +95,7 @@ export default {
 
     return {
       links,
+      ENV: import.meta.env,
     };
   },
 };
