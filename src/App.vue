@@ -87,7 +87,7 @@ export default {
       { text: '選課說明', to: { name: 'information' } },
       { text: '課程查詢', to: { name: 'http-404' } },
       { text: '我的課表', to: { name: 'http-404' } },
-      { text: '關於本站', to: { name: 'http-404' } },
+      { text: '關於本站', to: { name: 'about' } },
     ];
 
     return {
