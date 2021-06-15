@@ -12,6 +12,7 @@ const store = Vuex.createStore({
   },
   getters: {
   },
+  plugins: import.meta.env.DEV ? [Vuex.createLogger()] : [],
 });
 
 export default store;
