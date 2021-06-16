@@ -1,6 +1,7 @@
 <template>
   <table class="CourseTable table table-hover text-center align-middle">
     <thead>
+      <CourseTableHeader :columns="columns" />
     </thead>
     <tbody>
     </tbody>
@@ -8,7 +9,13 @@
 </template>
 
 <script>
+import CourseTableHeader from './CourseTableHeader.vue';
+import { columns } from './columns/data';
+
 export default {
+  components: {
+    CourseTableHeader,
+  },
   props: {
     courses: {
       type: Array,
@@ -17,6 +24,7 @@ export default {
   },
   setup() {
     return {
+      columns,
     };
   },
 };
