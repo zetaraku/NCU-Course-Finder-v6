@@ -4,17 +4,25 @@
       <CourseTableHeader :columns="columns" />
     </thead>
     <tbody>
+      <CourseTableRow
+        v-for="course in courses"
+        :key="course.serialNo"
+        :columns="columns"
+        :course="course"
+      />
     </tbody>
   </table>
 </template>
 
 <script>
 import CourseTableHeader from './CourseTableHeader.vue';
+import CourseTableRow from './CourseTableRow.vue';
 import { columns } from './columns/data';
 
 export default {
   components: {
     CourseTableHeader,
+    CourseTableRow,
   },
   props: {
     courses: {
