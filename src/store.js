@@ -1,5 +1,6 @@
 /* eslint-disable no-param-reassign */
 import * as Vuex from 'vuex';
+import { fetchCourseData } from '@/services/api';
 
 const store = Vuex.createStore({
   state() {
@@ -29,6 +30,23 @@ const store = Vuex.createStore({
     },
   },
   actions: {
+    async loadCourseData(context) {
+      try {
+        let {
+          colleges,
+          departments,
+          courses,
+          lastUpdateTime,
+        } = await fetchCourseData();
+
+        context.commit('SET_COLLEGES', { colleges });
+        context.commit('SET_DEPARTMENTS', { departments });
+        context.commit('SET_COURSES', { courses });
+        context.commit('SET_LAST_UPDATE_TIME', { lastUpdateTime });
+      } catch (err) {
+        context.commit('SET_ERROR_MESSAGE', { errorMessage: err.message });
+      }
+    },
   },
   getters: {
   },
