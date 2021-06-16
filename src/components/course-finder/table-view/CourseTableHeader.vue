@@ -4,7 +4,14 @@
       v-for="column in columns"
       :key="column.key"
     >
-      <label class="text-nowrap cursor-pointer">
+      <label
+        v-tooltip="column.description"
+        class="text-nowrap cursor-pointer"
+      >
+        <i
+          v-if="column.description !== undefined"
+          class="bi bi-info-circle fs-6"
+        />
         {{ column.name }}
       </label>
     </th>
