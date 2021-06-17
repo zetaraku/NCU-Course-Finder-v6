@@ -21,7 +21,7 @@
 import * as Vue from 'vue';
 import CourseTable from '@/components/course-finder/table-view/CourseTable.vue';
 import Pagination from '@/components/Pagination.vue';
-import { paginate } from '@/helpers';
+import { sortCourses, paginate } from '@/helpers';
 
 export default {
   components: {
@@ -35,15 +35,33 @@ export default {
     },
   },
   setup(props) {
+    // sorting
+    const sorting = Vue.ref({
+      key: '',
+      type: null,
+      order: 'asc',
+    });
+    const sortedCourses = Vue.computed(
+      () => sortCourses(props.courses, sorting.value),
+    );
+
     // pagination
     const pageSize = Vue.ref(24);
     const pageCount = Vue.computed(
-      () => Math.max(1, Math.ceil(props.courses.length / pageSize.value)),
+      () => Math.max(1, Math.ceil(sortedCourses.value.length / pageSize.value)),
     );
     const currentPage = Vue.ref(1);
     const coursesInCurrentPage = Vue.computed(
-      () => paginate(props.courses, pageSize.value, currentPage.value),
+      () => paginate(sortedCourses.value, pageSize.value, currentPage.value),
     );
+
+    // Jump to the first page when the result courses changed
+    Vue.watch(sortedCourses, () => {
+      currentPage.value = 1;
+    });
+
+    // provide sorting option to inner table header
+    Vue.provide('sorting', sorting);
 
     return {
       pageCount,
