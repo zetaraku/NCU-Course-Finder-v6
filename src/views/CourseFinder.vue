@@ -13,7 +13,7 @@
 <script>
 import * as Vue from 'vue';
 import * as Vuex from 'vuex';
-import DataStatusIndicator from '@/components/DataStatusIndicator.vue';
+import DataStatusIndicator from '@/components/course-finder/DataStatusIndicator.vue';
 import CourseView from '@/components/course-finder/CourseView.vue';
 
 export default {
