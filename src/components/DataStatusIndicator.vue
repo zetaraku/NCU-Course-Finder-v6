@@ -36,21 +36,21 @@
 </template>
 
 <script>
+import * as Vue from 'vue';
+import * as Vuex from 'vuex';
 import { formatDateTime, formatRelativeTime } from '@/helpers';
 
 export default {
-  props: {
-    lastUpdateTime: {
-      type: Date,
-      default: null,
-    },
-    errorMessage: {
-      type: String,
-      default: null,
-    },
-  },
   setup() {
+    const store = Vuex.useStore();
+
+    const lastUpdateTime = Vue.computed(() => store.state.lastUpdateTime);
+    const errorMessage = Vue.computed(() => store.state.errorMessage);
+
     return {
+      lastUpdateTime,
+      errorMessage,
+
       formatDateTime,
       formatRelativeTime,
     };

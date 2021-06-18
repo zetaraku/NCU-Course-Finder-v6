@@ -1,8 +1,6 @@
 <template>
   <div class="CourseFinder container my-4">
     <DataStatusIndicator
-      :last-update-time="lastUpdateTime"
-      :error-message="errorMessage"
       class="my-4"
     />
     <CourseView
@@ -27,13 +25,9 @@ export default {
     const store = Vuex.useStore();
 
     const courses = Vue.computed(() => store.state.courses);
-    const lastUpdateTime = Vue.computed(() => store.state.lastUpdateTime);
-    const errorMessage = Vue.computed(() => store.state.errorMessage);
 
     return {
       courses,
-      lastUpdateTime,
-      errorMessage,
     };
   },
 };
