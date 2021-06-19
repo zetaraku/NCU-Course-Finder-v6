@@ -2,7 +2,7 @@ import * as VueRouter from 'vue-router';
 import * as VueGtag from 'vue-gtag-next';
 import HelloWorld from '@/components/HelloWorld.vue';
 import Information from '@/views/Information.vue';
-import CourseFinder from '@/components/course-finder/CourseFinder.vue';
+import CourseFinder from '@/components/CourseFinder.vue';
 import About from '@/views/About.vue';
 import { ErrorPage404, ErrorPage418 } from '@/views/error';
 
