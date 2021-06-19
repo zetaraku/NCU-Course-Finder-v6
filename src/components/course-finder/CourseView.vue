@@ -19,9 +19,9 @@
 
 <script>
 import * as Vue from 'vue';
-import CourseTable from '@/components/course-finder/table-view/CourseTable.vue';
 import Pagination from '@/components/Pagination.vue';
 import { sortCourses, paginate } from '@/helpers';
+import CourseTable from './table-view/CourseTable.vue';
 
 export default {
   components: {
