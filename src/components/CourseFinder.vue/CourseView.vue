@@ -21,7 +21,7 @@
 import * as Vue from 'vue';
 import Pagination from '@/components/Pagination.vue';
 import { sortCourses, paginate } from '@/helpers';
-import CourseTable from './table-view/CourseTable.vue';
+import CourseTable from './CourseTable.vue';
 
 export default {
   components: {
