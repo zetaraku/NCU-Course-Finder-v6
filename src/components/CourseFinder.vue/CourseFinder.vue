@@ -3,6 +3,9 @@
     <DataStatusIndicator
       class="my-4"
     />
+    <CourseFilter
+      class="my-4"
+    />
     <CourseView
       :courses="courses"
       class="my-4"
@@ -14,11 +17,13 @@
 import * as Vue from 'vue';
 import * as Vuex from 'vuex';
 import DataStatusIndicator from './DataStatusIndicator.vue';
+import CourseFilter from './CourseFilter.vue';
 import CourseView from './CourseView.vue';
 
 export default {
   components: {
     DataStatusIndicator,
+    CourseFilter,
     CourseView,
   },
   setup() {
