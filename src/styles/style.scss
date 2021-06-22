@@ -1,6 +1,9 @@
 label {
   user-select: none;
 }
+fieldset[disabled] * {
+  cursor: not-allowed;
+}
 
 .cursor-pointer {
   cursor: pointer;
