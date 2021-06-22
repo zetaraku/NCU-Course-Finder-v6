@@ -6,6 +6,12 @@
     <CourseFilter
       class="my-4"
     />
+    <ResultIndicator
+      :value="100 * filteredCourses.length / courses.length"
+      class="my-5"
+    >
+      共找到 {{ filteredCourses.length }} / {{ courses.length }} 筆符合的課程
+    </ResultIndicator>
     <CourseView
       :courses="filteredCourses"
       class="my-4"
@@ -20,12 +26,14 @@ import * as Vuex from 'vuex';
 import { makeFilters, makeFilterOptions, filterCourses } from '@/helpers';
 import DataStatusIndicator from './DataStatusIndicator.vue';
 import CourseFilter from './CourseFilter.vue';
+import ResultIndicator from './ResultIndicator.vue';
 import CourseView from './CourseView.vue';
 
 export default {
   components: {
     DataStatusIndicator,
     CourseFilter,
+    ResultIndicator,
     CourseView,
   },
   setup() {
