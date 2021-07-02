@@ -37,7 +37,7 @@
 </template>
 
 <script>
-import * as FtrComponents from './Ftr';
+import * as FtrComponents from './FtrComponents';
 
 export default {
   components: {
