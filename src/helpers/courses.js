@@ -80,9 +80,9 @@ export function sortCourses(courses, sorting) {
     if (sorting.type === 'truthy') {
       result.sort((a, b) => Boolean(a[key]) - Boolean(b[key]));
     } else if (sorting.type === 'number') {
-      result.sort((a, b) => a[key] - b[key]);
+      result.sort((a, b) => Number(a[key]) - Number(b[key]));
     } else if (sorting.type === 'string') {
-      result.sort((a, b) => a[key].localeCompare(b[key]));
+      result.sort((a, b) => String(a[key] ?? '').localeCompare(String(b[key] ?? '')));
     } else if (sorting.type === 'length') {
       result.sort((a, b) => a[key].length - b[key].length);
     } else {
