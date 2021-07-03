@@ -19,7 +19,7 @@
 <script>
 import CourseTableHeader from './CourseTableHeader.vue';
 import CourseTableRow from './CourseTableRow.vue';
-import { columns } from './Col/data';
+import { columns } from './ColComponents/data';
 
 export default {
   components: {
