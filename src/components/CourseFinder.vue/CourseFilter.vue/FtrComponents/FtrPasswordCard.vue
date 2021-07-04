@@ -1,6 +1,6 @@
 <template>
   <div class="FtrPasswordCard">
-    <label class="form-label fw-bolder">密碼卡</label>
+    <label class="form-label fw-bold">密碼卡</label>
     <fieldset class="input-group">
       <i class="visually-hidden" />
       <div

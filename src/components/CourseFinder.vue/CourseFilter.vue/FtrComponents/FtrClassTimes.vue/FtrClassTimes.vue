@@ -1,6 +1,6 @@
 <template>
   <div class="FtrClassTimes">
-    <label class="form-label fw-bolder">上課時段</label>
+    <label class="form-label fw-bold">上課時段</label>
     <fieldset class="input-group">
       <button
         class="form-control text-start text-truncate"

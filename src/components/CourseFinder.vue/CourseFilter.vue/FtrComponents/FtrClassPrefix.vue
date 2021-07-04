@@ -1,6 +1,6 @@
 <template>
   <div class="FtrClassPrefix">
-    <label class="form-label fw-bolder">常用類別</label>
+    <label class="form-label fw-bold">常用類別</label>
     <select
       v-model="filters.classPrefix"
       class="form-select cursor-pointer"

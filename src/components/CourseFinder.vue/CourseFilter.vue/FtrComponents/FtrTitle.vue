@@ -2,7 +2,7 @@
   <div class="FtrTitle">
     <label
       v-tooltip.right="'※可用空格隔開多個關鍵字'"
-      class="form-label fw-bolder cursor-pointer"
+      class="form-label fw-bold cursor-pointer"
     >
       課程名稱<i class="bi bi-info-circle ms-1 pe-2" />
     </label>

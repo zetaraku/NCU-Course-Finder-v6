@@ -1,6 +1,6 @@
 <template>
   <div class="FtrCredits">
-    <label class="form-label fw-bolder">學分數</label>
+    <label class="form-label fw-bold">學分數</label>
     <fieldset class="input-group">
       <i class="visually-hidden" />
       <div

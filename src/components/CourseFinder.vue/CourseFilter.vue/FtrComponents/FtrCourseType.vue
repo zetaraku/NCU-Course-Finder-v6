@@ -1,6 +1,6 @@
 <template>
   <div class="FtrCourseType">
-    <label class="form-label fw-bolder">選修別</label>
+    <label class="form-label fw-bold">選修別</label>
     <fieldset class="input-group">
       <i class="visually-hidden" />
       <div

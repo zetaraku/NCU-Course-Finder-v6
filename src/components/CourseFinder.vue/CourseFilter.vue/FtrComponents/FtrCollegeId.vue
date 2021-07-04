@@ -1,6 +1,6 @@
 <template>
   <div class="FtrCollegeId">
-    <label class="form-label fw-bolder">學院</label>
+    <label class="form-label fw-bold">學院</label>
     <select
       v-model="filters.collegeId"
       class="form-select cursor-pointer"

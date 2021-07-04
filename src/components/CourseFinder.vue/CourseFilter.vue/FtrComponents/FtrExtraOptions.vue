@@ -1,6 +1,6 @@
 <template>
   <div class="FtrExtraOptions">
-    <label class="form-label fw-bolder">進階選項</label>
+    <label class="form-label fw-bold">進階選項</label>
     <fieldset class="input-group">
       <i class="visually-hidden" />
       <div

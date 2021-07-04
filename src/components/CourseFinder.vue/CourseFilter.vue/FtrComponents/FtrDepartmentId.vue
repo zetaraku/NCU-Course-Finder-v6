@@ -1,6 +1,6 @@
 <template>
   <div class="FtrDepartmentId">
-    <label class="form-label fw-bolder">系別</label>
+    <label class="form-label fw-bold">系別</label>
     <select
       v-model="filters.departmentId"
       class="form-select cursor-pointer"

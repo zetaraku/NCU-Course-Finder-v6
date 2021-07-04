@@ -1,6 +1,6 @@
 <template>
   <div class="FtrClassNo">
-    <label class="form-label fw-bolder">課號</label>
+    <label class="form-label fw-bold">課號</label>
     <input
       v-model.trim="filters.classNo"
       type="text"
