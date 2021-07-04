@@ -1,5 +1,5 @@
 <template>
-  <div class="ResultIndicator">
+  <div class="ResultIndicator user-select-none">
     <div
       class="progress position-relative"
       style="height: 30px;"

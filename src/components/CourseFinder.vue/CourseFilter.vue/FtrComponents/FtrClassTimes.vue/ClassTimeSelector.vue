@@ -13,7 +13,7 @@
         </div>
         <div class="modal-body">
           <div class="container-fluid table-responsive p-0">
-            <table class="w-100 fs-5 text-center">
+            <table class="w-100 fs-5 text-center user-select-none">
               <thead>
                 <tr>
                   <th style="min-width: 50px;">

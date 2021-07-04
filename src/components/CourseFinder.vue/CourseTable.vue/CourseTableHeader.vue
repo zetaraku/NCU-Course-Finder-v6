@@ -1,5 +1,5 @@
 <template>
-  <tr class="CourseTableHeader fs-5">
+  <tr class="CourseTableHeader fs-5 user-select-none">
     <th
       v-for="column in columns"
       :key="column.key"

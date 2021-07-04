@@ -1,5 +1,5 @@
 <template>
-  <div class="CourseFilter">
+  <div class="CourseFilter user-select-none">
     <div class="row row-cols-1 row-cols-md-2 gx-4 gy-3">
       <div class="col">
         <FtrCollegeId />
