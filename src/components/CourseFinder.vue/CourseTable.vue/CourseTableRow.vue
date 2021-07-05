@@ -1,28 +1,48 @@
 <template>
   <tr class="CourseTableRow">
-    <td
-      v-for="column in columns"
-      :key="column.key"
-    >
-      {{ course[column.key] }}
+    <td style="width: 60px;">
+      <ColCourseType class="fs-5" />
+    </td>
+    <td style="width: 120px;">
+      <ColClassNo class="fs-5" />
+    </td>
+    <td style="width: 200px; max-width: 200px;">
+      <ColTitle />
+    </td>
+    <td style="width: 125px;">
+      <ColTeachers />
+    </td>
+    <td style="width: 85px;">
+      <ColCredit />
+    </td>
+    <td style="width: 140px;">
+      <ColSuccessRate />
+    </td>
+    <td style="width: 140px;">
+      <ColFullRate />
+    </td>
+    <td style="width: 175px;">
+      <ColClassTime class="fs-5" />
     </td>
   </tr>
 </template>
 
 <script>
-import { columns } from './ColComponents/data';
+import * as Vue from 'vue';
+import * as ColComponents from './ColComponents';
 
 export default {
+  components: {
+    ...ColComponents,
+  },
   props: {
     course: {
       type: Object,
       required: true,
     },
   },
-  setup() {
-    return {
-      columns,
-    };
+  setup(props) {
+    Vue.provide('course', props.course);
   },
 };
 </script>
