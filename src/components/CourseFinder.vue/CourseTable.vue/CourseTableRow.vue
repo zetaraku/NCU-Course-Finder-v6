@@ -10,16 +10,19 @@
 </template>
 
 <script>
+import { columns } from './ColComponents/data';
+
 export default {
   props: {
-    columns: {
-      type: Array,
-      required: true,
-    },
     course: {
       type: Object,
       required: true,
     },
+  },
+  setup() {
+    return {
+      columns,
+    };
   },
 };
 </script>

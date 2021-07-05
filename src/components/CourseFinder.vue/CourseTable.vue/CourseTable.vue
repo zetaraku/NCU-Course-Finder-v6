@@ -2,13 +2,12 @@
   <div class="CourseTable">
     <table class="table table-hover text-center align-middle">
       <thead>
-        <CourseTableHeader :columns="columns" />
+        <CourseTableHeader />
       </thead>
       <tbody>
         <CourseTableRow
           v-for="course in courses"
           :key="course.serialNo"
-          :columns="columns"
           :course="course"
         />
       </tbody>
@@ -19,7 +18,6 @@
 <script>
 import CourseTableHeader from './CourseTableHeader.vue';
 import CourseTableRow from './CourseTableRow.vue';
-import { columns } from './ColComponents/data';
 
 export default {
   components: {
@@ -31,11 +29,6 @@ export default {
       type: Array,
       required: true,
     },
-  },
-  setup() {
-    return {
-      columns,
-    };
   },
 };
 </script>

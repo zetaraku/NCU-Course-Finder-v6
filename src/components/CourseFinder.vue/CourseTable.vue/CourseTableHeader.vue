@@ -29,18 +29,14 @@
 
 <script>
 import * as Vue from 'vue';
+import { columns } from './ColComponents/data';
 
 export default {
-  props: {
-    columns: {
-      type: Array,
-      required: true,
-    },
-  },
   setup() {
     const sorting = Vue.inject('sorting');
 
     return {
+      columns,
       sorting,
 
       toggleSorting(column) {
