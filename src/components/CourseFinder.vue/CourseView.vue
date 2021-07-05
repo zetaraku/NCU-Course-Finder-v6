@@ -43,7 +43,7 @@ export default {
   setup(props) {
     // sorting
     const sorting = Vue.ref({
-      key: '',
+      key: null,
       type: null,
       order: 'asc',
     });

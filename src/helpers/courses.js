@@ -75,7 +75,7 @@ export function filterCourses(courses, filters) {
 export function sortCourses(courses, sorting) {
   let result = courses.slice();
 
-  if (sorting.key !== '') {
+  if (sorting.key !== null) {
     let { key } = sorting;
     if (sorting.type === 'truthy') {
       result.sort((a, b) => Boolean(a[key]) - Boolean(b[key]));
