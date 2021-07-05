@@ -1,6 +1,7 @@
 /* eslint-disable object-curly-newline */
 // eslint-disable-next-line import/prefer-default-export
 export const columns = [
+  { name: '選修別', key: 'courseType', sortType: 'string' },
   { name: '課號', key: 'classNo', sortType: 'string' },
   { name: '課程名稱', key: 'title', sortType: 'length' },
   { name: '授課教師', key: 'teachers', sortType: 'length' },
