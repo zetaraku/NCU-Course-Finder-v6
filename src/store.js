@@ -49,6 +49,16 @@ const store = Vuex.createStore({
     },
   },
   getters: {
+    selectedCourses(state) {
+      return state.courses.filter(
+        course => course.selected,
+      );
+    },
+    selectedClassTimes(state, getters) {
+      return new Set(
+        getters.selectedCourses.flatMap(course => course.classTimes),
+      );
+    },
   },
   plugins: import.meta.env.DEV ? [Vuex.createLogger()] : [],
 });
