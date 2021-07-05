@@ -42,9 +42,12 @@ export default {
     const colleges = Vue.computed(() => store.state.colleges);
     const departments = Vue.computed(() => store.state.departments);
     const courses = Vue.computed(() => store.state.courses);
+    const selectedClassTimes = Vue.computed(() => store.getters.selectedClassTimes);
 
     const filters = makeFilters();
-    const filterOptions = makeFilterOptions({ colleges, departments, courses, filters });
+    const filterOptions = makeFilterOptions({
+      colleges, departments, courses, filters, selectedClassTimes,
+    });
 
     const filteredCourses = Vue.computed(
       () => filterCourses(courses.value, filters),

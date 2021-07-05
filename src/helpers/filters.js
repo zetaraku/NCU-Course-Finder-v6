@@ -17,7 +17,7 @@ export function makeFilters() {
 }
 
 // eslint-disable-next-line object-curly-newline
-export function makeFilterOptions({ colleges, departments, courses, filters }) {
+export function makeFilterOptions({ colleges, departments, courses, filters, selectedClassTimes }) {
   return Vue.reactive({
     colleges,
     departments: Vue.computed(
@@ -73,6 +73,13 @@ export function makeFilterOptions({ colleges, departments, courses, filters }) {
         value: 'excludeInfinity',
         html: '排除<b>無名額限制</b>的課程',
         predicate: course => !(course.limitCnt === Infinity),
+      },
+      {
+        value: 'excludeMySchedule',
+        html: '排除<b>與我的課表衝堂</b>的課程',
+        predicate: course => course.selected || !course.classTimes.some(
+          classTime => Vue.unref(selectedClassTimes).has(classTime),
+        ),
       },
     ],
   });
