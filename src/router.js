@@ -4,7 +4,7 @@ import HelloWorld from '@/components/HelloWorld.vue';
 import Information from '@/components/Information.vue';
 import CourseFinder from '@/components/CourseFinder.vue';
 import About from '@/components/About.vue';
-import { ErrorPage404, ErrorPage418 } from '@/views/error';
+import { ErrorPage404, ErrorPage418 } from '@/components/ErrorViews';
 
 const routes = [
   { path: '/', component: HelloWorld, props: { msg: 'Hello Vue 3 + Vite' } },
