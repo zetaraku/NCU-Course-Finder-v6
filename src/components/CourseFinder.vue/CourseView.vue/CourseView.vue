@@ -23,10 +23,10 @@
 
 <script>
 import * as Vue from 'vue';
-import Pagination from '@/components/Pagination.vue';
 import { sortCourses, paginate } from '@/helpers';
 import CourseGrid from './CourseGrid.vue';
 import CourseTable from './CourseTable.vue';
+import Pagination from './Pagination.vue';
 
 export default {
   components: {
