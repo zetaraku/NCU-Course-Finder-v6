@@ -14,7 +14,7 @@
           v-if="column.description !== undefined"
           class="bi bi-info-circle fs-6"
         />
-        {{ column.name }}
+        {{ column.abbrName ?? column.name }}
         <i
           class="bi ms-1"
           :class="
