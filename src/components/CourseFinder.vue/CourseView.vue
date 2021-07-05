@@ -43,8 +43,7 @@ export default {
   setup(props) {
     // sorting
     const sorting = Vue.ref({
-      key: null,
-      type: null,
+      column: null,
       order: 'asc',
     });
     const sortedCourses = Vue.computed(

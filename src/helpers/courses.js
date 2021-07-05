@@ -75,18 +75,18 @@ export function filterCourses(courses, filters) {
 export function sortCourses(courses, sorting) {
   let result = courses.slice();
 
-  if (sorting.key !== null) {
-    let { key } = sorting;
-    if (sorting.type === 'truthy') {
+  if (sorting.column !== null) {
+    let { key, sortType } = sorting.column;
+    if (sortType === 'truthy') {
       result.sort((a, b) => Boolean(a[key]) - Boolean(b[key]));
-    } else if (sorting.type === 'number') {
+    } else if (sortType === 'number') {
       result.sort((a, b) => Number(a[key]) - Number(b[key]));
-    } else if (sorting.type === 'string') {
+    } else if (sortType === 'string') {
       result.sort((a, b) => String(a[key] ?? '').localeCompare(String(b[key] ?? '')));
-    } else if (sorting.type === 'length') {
+    } else if (sortType === 'length') {
       result.sort((a, b) => a[key].length - b[key].length);
     } else {
-      throw new Error(`Unknown sorting type: '${sorting.type}'`);
+      throw new Error(`Unknown sorting type: '${sortType}'`);
     }
   }
 

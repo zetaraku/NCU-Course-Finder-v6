@@ -7,7 +7,7 @@
       <label
         v-tooltip="column.description"
         class="text-nowrap cursor-pointer"
-        :class="column.key === sorting.key ? 'fw-bold' : 'fw-normal'"
+        :class="column.key === sorting.column?.key ? 'fw-bold' : 'fw-normal'"
         @click="toggleSorting(column);"
       >
         <i
@@ -18,7 +18,7 @@
         <i
           class="bi ms-1"
           :class="
-            column.key !== sorting.key ? 'bi-chevron-expand' :
+            column.key !== sorting.column?.key ? 'bi-chevron-expand' :
             sorting.order === 'asc' ? 'bi-chevron-up' : 'bi-chevron-down'
           "
         />
@@ -41,10 +41,9 @@ export default {
 
       toggleSorting(column) {
         sorting.value = {
-          key: column.key,
-          type: column.sortType,
+          column,
           order: (
-            sorting.value.key === column.key && sorting.value.order === 'asc'
+            sorting.value.column?.key === column.key && sorting.value.order === 'asc'
               ? 'desc' : 'asc'
           ),
         };
