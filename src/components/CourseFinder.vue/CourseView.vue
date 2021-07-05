@@ -5,6 +5,10 @@
       :page-count="pageCount"
       class="mb-4"
     />
+    <CourseGrid
+      :courses="coursesInCurrentPage"
+      class="my-4 d-block d-xl-none"
+    />
     <CourseTable
       :courses="coursesInCurrentPage"
       class="my-4 d-none d-xl-block"
@@ -21,10 +25,12 @@
 import * as Vue from 'vue';
 import Pagination from '@/components/Pagination.vue';
 import { sortCourses, paginate } from '@/helpers';
+import CourseGrid from './CourseGrid.vue';
 import CourseTable from './CourseTable.vue';
 
 export default {
   components: {
+    CourseGrid,
     CourseTable,
     Pagination,
   },
