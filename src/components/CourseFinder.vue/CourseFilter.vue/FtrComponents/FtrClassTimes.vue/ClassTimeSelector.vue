@@ -13,11 +13,14 @@
         </div>
         <div class="modal-body">
           <div class="container-fluid table-responsive p-0">
-            <table class="w-100 fs-5 text-center user-select-none">
+            <table class="w-100 fs-5 text-center align-middle user-select-none">
               <thead>
                 <tr>
-                  <th style="min-width: 50px;">
-                    <label v-tooltip="'節次＼星期'">
+                  <th style="min-width: 45px;">
+                    <label
+                      v-tooltip="'節次＼星期'"
+                      class="d-block cursor-pointer"
+                    >
                       ＼
                     </label>
                   </th>
@@ -26,7 +29,10 @@
                     :key="day.key"
                     scope="col"
                   >
-                    <label v-tooltip="`星期${day.name}`">
+                    <label
+                      v-tooltip="`星期${day.name}`"
+                      class="d-block cursor-pointer"
+                    >
                       {{ day.name }}
                     </label>
                   </th>
@@ -39,14 +45,16 @@
                   :style="{ backgroundColor: hour.bg ?? 'white' }"
                 >
                   <th scope="row">
-                    <label v-tooltip="`第 ${hour.key} 節 (${hour.period}:00~${hour.period}:50)`">
+                    <label
+                      v-tooltip="`第 ${hour.key} 節 (${hour.period}:00~${hour.period}:50)`"
+                      class="d-block cursor-pointer"
+                    >
                       {{ hour.key }}
                     </label>
                   </th>
                   <td
                     v-for="day in DAYS"
                     :key="day.key"
-                    class="p-1 px-1"
                   >
                     <template
                       v-for="time in [`${day.key}-${hour.key}`]"
@@ -61,7 +69,7 @@
                       >
                       <label
                         :for="`classTime_${time}`"
-                        class="btn badge rounded-pill w-100"
+                        class="btn badge rounded-pill font-monospace m-1"
                       >
                         {{ time }}
                       </label>
@@ -108,11 +116,11 @@ export default {
 
 <style lang="scss" scoped>
 .btn-check {
-  &:not(:checked) + label {
+  &:not(:checked) + .btn {
     color: #6c757d;
     background-color: #f8f9fa;
   }
-  &:checked + label {
+  &:checked + .btn {
     color: #ffffff;
     background-color: #0d6efd;
   }
