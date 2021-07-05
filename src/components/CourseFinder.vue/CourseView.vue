@@ -60,6 +60,11 @@ export default {
       () => paginate(sortedCourses.value, pageSize.value, currentPage.value),
     );
 
+    // reset the sorting order when the sorting column changed
+    Vue.watch(() => sorting.value.column, () => {
+      sorting.value.order = 'asc';
+    });
+
     // Jump to the first page when the result courses changed
     Vue.watch(sortedCourses, () => {
       currentPage.value = 1;

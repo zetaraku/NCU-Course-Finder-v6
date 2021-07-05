@@ -40,13 +40,11 @@ export default {
       sorting,
 
       toggleSorting(column) {
-        sorting.value = {
-          column,
-          order: (
-            sorting.value.column?.key === column.key && sorting.value.order === 'asc'
-              ? 'desc' : 'asc'
-          ),
-        };
+        if (column.key !== sorting.value.column?.key) {
+          sorting.value.column = column;
+        } else {
+          sorting.value.order = sorting.value.order === 'asc' ? 'desc' : 'asc';
+        }
       },
     };
   },
