@@ -42,7 +42,7 @@
 
 <script>
 import * as Vue from 'vue';
-import { columns } from '../CourseTable.vue/ColComponents/data';
+import { columns } from '../ColComponents/data';
 
 export default {
   setup() {

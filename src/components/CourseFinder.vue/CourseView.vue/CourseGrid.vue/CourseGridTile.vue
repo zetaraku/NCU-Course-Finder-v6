@@ -37,7 +37,7 @@
 
 <script>
 import * as Vue from 'vue';
-import * as ColComponents from '../CourseTable.vue/ColComponents';
+import * as ColComponents from '../ColComponents';
 
 export default {
   components: {
