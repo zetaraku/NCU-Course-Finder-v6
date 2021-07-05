@@ -6,3 +6,4 @@ export { default as ColCredit } from './ColCredit.vue';
 export { default as ColSuccessRate } from './ColSuccessRate.vue';
 export { default as ColFullRate } from './ColFullRate.vue';
 export { default as ColClassTime } from './ColClassTime.vue';
+export { default as ColSelected } from './ColSelected.vue';

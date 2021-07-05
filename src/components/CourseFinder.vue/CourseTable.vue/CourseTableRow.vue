@@ -1,5 +1,8 @@
 <template>
-  <tr class="CourseTableRow">
+  <tr
+    class="CourseTableRow"
+    :class="{ 'bg-warning': course.selected }"
+  >
     <td style="width: 60px;">
       <ColCourseType class="fs-5" />
     </td>
@@ -23,6 +26,11 @@
     </td>
     <td style="width: 175px;">
       <ColClassTime class="fs-5" />
+    </td>
+    <td style="width: 60px;">
+      <label class="d-block cursor-pointer">
+        <ColSelected />
+      </label>
     </td>
   </tr>
 </template>
