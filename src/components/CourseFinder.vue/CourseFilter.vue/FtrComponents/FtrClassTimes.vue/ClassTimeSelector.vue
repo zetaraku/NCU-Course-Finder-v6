@@ -95,7 +95,7 @@
 
 <script>
 import * as Vue from 'vue';
-import { DAYS, HOURS } from './data';
+import { DAYS, HOURS } from '@/consts';
 
 export default {
   inject: ['filters'],
