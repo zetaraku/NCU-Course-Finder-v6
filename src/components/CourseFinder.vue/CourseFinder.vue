@@ -9,6 +9,14 @@
     <div class="d-flex justify-content-center my-5">
       <div class="d-flex flex-column align-items-center mx-2 mx-sm-3">
         <button
+          class="btn btn-lg btn-secondary text-nowrap px-sm-4"
+          @click="resetFilters"
+        >
+          重置篩選條件
+        </button>
+      </div>
+      <div class="d-flex flex-column align-items-center mx-2 mx-sm-3">
+        <button
           class="btn btn-lg btn-primary text-nowrap px-sm-4"
           :disabled="autoFilteringEnabled"
           @click="refreshFilteredCourses"
@@ -78,6 +86,12 @@ export default {
     function refreshFilteredCourses() {
       filteredCourses.value = filterCourses(courses.value, filters);
     }
+    function resetFilters() {
+      // make new filters to override the old ones
+      Object.assign(filters, makeFilters());
+      // manually refresh filteredCourses when auto-filtering is not enabled
+      if (!autoFilteringEnabled.value) refreshFilteredCourses();
+    }
 
     // reset department/category filter when the college filter is changed
     Vue.watch(() => filters.collegeId, () => {
@@ -104,6 +118,7 @@ export default {
       autoFilteringEnabled,
 
       refreshFilteredCourses,
+      resetFilters,
     };
   },
 };
