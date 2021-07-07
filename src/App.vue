@@ -30,6 +30,7 @@
                 v-for="(link, i) in links"
                 :key="i"
                 class="nav-item py-1"
+                @click="closeNavBar"
               >
                 <router-link
                   class="nav-link"
@@ -81,7 +82,9 @@
 </template>
 
 <script>
+import * as Vue from 'vue';
 import * as Vuex from 'vuex';
+import bootstrap from 'bootstrap/dist/js/bootstrap';
 
 export default {
   setup() {
@@ -94,11 +97,23 @@ export default {
       { text: '關於本站', to: { name: 'about' } },
     ];
 
+    const closeNavBar = Vue.ref(null);
+
+    Vue.onMounted(async () => {
+      let bsCollapse = new bootstrap.Collapse(
+        document.querySelector('.navbar-collapse'),
+        { toggle: false },
+      );
+      closeNavBar.value = () => { bsCollapse.hide(); };
+    });
+
     store.dispatch('loadCourseData');
 
     return {
       links,
       ENV: import.meta.env,
+
+      closeNavBar,
     };
   },
 };
