@@ -7,12 +7,27 @@
       class="my-4"
     />
     <div class="d-flex justify-content-center my-5">
-      <button
-        class="btn btn-lg btn-primary text-nowrap px-4"
-        @click="refreshFilteredCourses"
-      >
-        開始多重篩選
-      </button>
+      <div class="d-flex flex-column align-items-center mx-2 mx-sm-3">
+        <button
+          class="btn btn-lg btn-primary text-nowrap px-sm-4"
+          :disabled="autoFilteringEnabled"
+          @click="refreshFilteredCourses"
+        >
+          開始多重篩選
+        </button>
+        <label
+          v-tooltip.bottom="'※請注意：啟用此選項可能會造成設定篩選條件時的延遲'"
+          class="form-check-label text-nowrap user-select-none cursor-pointer mt-3"
+        >
+          <input
+            v-model="autoFilteringEnabled"
+            type="checkbox"
+            class="form-check-input cursor-pointer m-1"
+          >
+          自動套用
+          <i class="bi bi-info-circle ms-1" />
+        </label>
+      </div>
     </div>
     <ResultIndicator
       :value="100 * filteredCourses.length / courses.length"
@@ -58,6 +73,7 @@ export default {
     });
 
     const filteredCourses = Vue.ref([]);
+    const autoFilteringEnabled = Vue.ref(false);
 
     function refreshFilteredCourses() {
       filteredCourses.value = filterCourses(courses.value, filters);
@@ -74,12 +90,18 @@ export default {
       refreshFilteredCourses();
     });
 
+    // refresh filteredCourses on filters changed if auto-filtering is enabled
+    Vue.watch([filters, autoFilteringEnabled], () => {
+      if (autoFilteringEnabled.value) refreshFilteredCourses();
+    });
+
     Vue.provide('filters', filters);
     Vue.provide('filterOptions', filterOptions);
 
     return {
       courses,
       filteredCourses,
+      autoFilteringEnabled,
 
       refreshFilteredCourses,
     };
