@@ -42,7 +42,7 @@
 
 <script>
 import * as Vue from 'vue';
-import { columns } from '../ColComponents/data';
+import { COLUMNS as columns } from '@/consts';
 
 export default {
   setup() {
