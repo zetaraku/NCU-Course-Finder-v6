@@ -90,12 +90,6 @@ export default {
   setup() {
     const store = Vuex.useStore();
 
-    const links = [
-      { text: '選課說明', to: { name: 'information' } },
-      { text: '課程查詢', to: { name: 'course-finder' } },
-      { text: '我的課表', to: { name: 'my-schedule' } },
-      { text: '關於本站', to: { name: 'about' } },
-    ];
 
     const closeNavBar = Vue.ref(null);
 
@@ -110,8 +104,14 @@ export default {
     store.dispatch('loadCourseData');
 
     return {
-      links,
       ENV: import.meta.env,
+
+      links: [
+        { text: '選課說明', to: { name: 'information' } },
+        { text: '課程查詢', to: { name: 'course-finder' } },
+        { text: '我的課表', to: { name: 'my-schedule' } },
+        { text: '關於本站', to: { name: 'about' } },
+      ],
 
       closeNavBar,
     };
