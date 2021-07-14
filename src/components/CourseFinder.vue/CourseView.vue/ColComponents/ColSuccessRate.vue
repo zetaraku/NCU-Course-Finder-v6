@@ -7,8 +7,8 @@
       <div
         class="progress-bar"
         :style="{
-          width: `${clamp(course.successRate, 0, 100)}%`,
-          backgroundColor: '#00ff00',
+          'width': `${clamp(course.successRate, 0, 100)}%`,
+          'background-color': '#00ff00',
         }"
       />
       <div

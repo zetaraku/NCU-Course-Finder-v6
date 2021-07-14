@@ -6,7 +6,7 @@
     >
       <div
         class="progress-bar bg-warning"
-        :style="{ width: `${value}%` }"
+        :style="{ 'width': `${value}%` }"
       />
       <div class="position-absolute w-100 h-100 flex-centered fs-6">
         <slot />

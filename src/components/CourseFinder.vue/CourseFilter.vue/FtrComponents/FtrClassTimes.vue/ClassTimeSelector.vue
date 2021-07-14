@@ -42,7 +42,7 @@
                 <tr
                   v-for="hour in HOURS"
                   :key="hour.key"
-                  :style="{ backgroundColor: hour.bg ?? 'white' }"
+                  :style="{ 'background-color': hour.bg ?? 'white' }"
                 >
                   <th scope="row">
                     <label
