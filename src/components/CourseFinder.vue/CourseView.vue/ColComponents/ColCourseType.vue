@@ -1,5 +1,5 @@
 <template>
-  <div class="ColCourseType">
+  <div class="ColCourseType flex-centered">
     <span
       class="badge rounded-pill p-2"
       :class="courseTypeClass(course.courseType)"

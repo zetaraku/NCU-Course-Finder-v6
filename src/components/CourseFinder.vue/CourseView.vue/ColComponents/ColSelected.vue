@@ -1,5 +1,5 @@
 <template>
-  <div class="ColSelected">
+  <div class="ColSelected flex-centered">
     <input
       v-model="courseSelected"
       type="checkbox"

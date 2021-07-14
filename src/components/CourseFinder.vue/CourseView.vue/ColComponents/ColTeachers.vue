@@ -1,5 +1,5 @@
 <template>
-  <div class="ColTeachers">
+  <div class="ColTeachers flex-centered">
     <template v-if="course.teachers.length === 0">
       <span class="text-muted fs-6">
         無

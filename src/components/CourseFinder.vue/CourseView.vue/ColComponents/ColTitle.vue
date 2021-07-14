@@ -1,5 +1,5 @@
 <template>
-  <div class="ColTitle">
+  <div class="ColTitle flex-centered">
     <span
       v-tooltip="course.title"
       class="d-inline-block mw-100 text-truncate"

@@ -28,7 +28,7 @@
       <ColClassTime class="fs-5" />
     </td>
     <td style="width: 60px;">
-      <label class="d-block cursor-pointer">
+      <label class="p-2 cursor-pointer">
         <ColSelected />
       </label>
     </td>

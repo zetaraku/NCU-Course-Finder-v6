@@ -1,12 +1,12 @@
 <template>
-  <div class="ColClassNo text-nowrap">
+  <div class="ColClassNo flex-centered">
     <abbr
       v-tooltip="{ content: [
         `流水號：${describeSerialNo(course)}`,
         `開課單位：${describeDepartments(course)}`,
         `授課對象：${describeTarget(course)}`,
       ].join('<br>'), html: true }"
-      class="font-monospace cursor-help"
+      class="font-monospace text-nowrap cursor-help"
       title=""
     >
       {{ course.classNo }}
