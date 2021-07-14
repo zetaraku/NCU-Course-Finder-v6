@@ -84,12 +84,22 @@
 <script>
 import * as Vue from 'vue';
 import * as Vuex from 'vuex';
+import { makeFilters, makeFilterOptions } from '@/helpers';
 import bootstrap from 'bootstrap/dist/js/bootstrap';
 
 export default {
   setup() {
     const store = Vuex.useStore();
 
+    const filters = makeFilters();
+    const filterOptions = makeFilterOptions({
+      colleges: Vue.computed(() => store.state.colleges),
+      departments: Vue.computed(() => store.state.departments),
+      courses: Vue.computed(() => store.state.courses),
+      selectedClassTimes: Vue.computed(() => store.getters.selectedClassTimes),
+      filters,
+    });
+    const autoFilteringEnabled = Vue.ref(false);
 
     const closeNavBar = Vue.ref(null);
 
@@ -102,6 +112,10 @@ export default {
     });
 
     store.dispatch('loadCourseData');
+
+    Vue.provide('filters', filters);
+    Vue.provide('filterOptions', filterOptions);
+    Vue.provide('autoFilteringEnabled', autoFilteringEnabled);
 
     return {
       ENV: import.meta.env,

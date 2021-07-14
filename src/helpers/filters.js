@@ -17,7 +17,7 @@ export function makeFilters() {
 }
 
 // eslint-disable-next-line object-curly-newline
-export function makeFilterOptions({ colleges, departments, courses, filters, selectedClassTimes }) {
+export function makeFilterOptions({ colleges, departments, courses, selectedClassTimes, filters }) {
   return Vue.reactive({
     colleges,
     departments: Vue.computed(

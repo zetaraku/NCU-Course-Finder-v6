@@ -54,7 +54,7 @@
 /* eslint-disable object-curly-newline */
 import * as Vue from 'vue';
 import * as Vuex from 'vuex';
-import { makeFilters, makeFilterOptions, filterCourses } from '@/helpers';
+import { makeFilters, filterCourses } from '@/helpers';
 import DataStatusIndicator from './DataStatusIndicator.vue';
 import CourseFilter from './CourseFilter.vue';
 import ResultIndicator from './ResultIndicator.vue';
@@ -70,18 +70,12 @@ export default {
   setup() {
     const store = Vuex.useStore();
 
-    const colleges = Vue.computed(() => store.state.colleges);
-    const departments = Vue.computed(() => store.state.departments);
     const courses = Vue.computed(() => store.state.courses);
-    const selectedClassTimes = Vue.computed(() => store.getters.selectedClassTimes);
 
-    const filters = makeFilters();
-    const filterOptions = makeFilterOptions({
-      colleges, departments, courses, filters, selectedClassTimes,
-    });
+    const filters = Vue.inject('filters');
+    const autoFilteringEnabled = Vue.inject('autoFilteringEnabled');
 
     const filteredCourses = Vue.ref([]);
-    const autoFilteringEnabled = Vue.ref(false);
 
     function refreshFilteredCourses() {
       filteredCourses.value = filterCourses(courses.value, filters);
@@ -109,9 +103,6 @@ export default {
     Vue.watch([filters, autoFilteringEnabled], () => {
       if (autoFilteringEnabled.value) refreshFilteredCourses();
     });
-
-    Vue.provide('filters', filters);
-    Vue.provide('filterOptions', filterOptions);
 
     return {
       courses,
