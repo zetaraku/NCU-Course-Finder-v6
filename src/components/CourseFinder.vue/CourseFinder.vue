@@ -24,7 +24,7 @@
           開始多重篩選
         </button>
         <label
-          v-tooltip.bottom="'※請注意：啟用此選項可能會造成設定篩選條件時的延遲'"
+          v-tooltip.bottom="'※如果在變更篩選條件時延遲過久，可試著取消勾選此選項並改為手動套用'"
           class="form-check-label text-nowrap user-select-none cursor-pointer mt-3"
         >
           <input
