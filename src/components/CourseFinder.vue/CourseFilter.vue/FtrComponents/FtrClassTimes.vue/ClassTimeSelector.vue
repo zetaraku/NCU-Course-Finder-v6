@@ -42,14 +42,14 @@
                 <tr
                   v-for="hour in HOURS"
                   :key="hour.key"
-                  :style="{ 'background-color': hour.bg ?? 'white' }"
+                  :style="{ 'background-color': hour.backgroundColor ?? 'white' }"
                 >
                   <th scope="row">
                     <label
-                      v-tooltip="`第 ${hour.key} 節 (${hour.period}:00~${hour.period}:50)`"
+                      v-tooltip="`第 ${hour.name} 節 (${hour.timeInfo})`"
                       class="d-block cursor-pointer"
                     >
-                      {{ hour.key }}
+                      {{ hour.name }}
                     </label>
                   </th>
                   <td
