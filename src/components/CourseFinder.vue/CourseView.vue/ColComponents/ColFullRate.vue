@@ -6,10 +6,8 @@
     >
       <div
         class="progress-bar"
-        :style="{
-          'width': `${clamp(course.fullRate, 0, 100)}%`,
-          'background-color': '#ffa500',
-        }"
+        style="background-color: #ffa500;"
+        :style="{ 'width': `${clamp(course.fullRate, 0, 100)}%` }"
       />
       <div
         class="position-absolute w-100 h-100 fs-6 text-nowrap flex-centered"
