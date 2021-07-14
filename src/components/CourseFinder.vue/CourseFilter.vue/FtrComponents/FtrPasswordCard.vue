@@ -1,7 +1,10 @@
 <template>
   <div class="FtrPasswordCard">
     <label class="form-label fw-bold">密碼卡</label>
-    <fieldset class="input-group">
+    <fieldset
+      class="input-group form-control px-1"
+      :class="filters.passwordCard !== null ? 'border-primary' : 'border-white'"
+    >
       <i class="visually-hidden" />
       <div
         v-for="passwordCard in filterOptions.passwordCards"

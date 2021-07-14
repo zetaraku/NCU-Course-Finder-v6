@@ -4,6 +4,7 @@
     <select
       v-model="filters.classPrefix"
       class="form-select cursor-pointer"
+      :class="{ 'border-primary': filters.classPrefix !== null }"
     >
       <option :value="null">
         【選擇常用類別】

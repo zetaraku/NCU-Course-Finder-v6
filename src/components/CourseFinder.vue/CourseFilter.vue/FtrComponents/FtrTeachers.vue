@@ -11,6 +11,7 @@
       v-model.trim="filters.teachers"
       type="text"
       class="form-control"
+      :class="{ 'border-primary': filters.teachers !== '' }"
       list="datalist_teachers"
       placeholder="請輸入授課教師名稱"
     >

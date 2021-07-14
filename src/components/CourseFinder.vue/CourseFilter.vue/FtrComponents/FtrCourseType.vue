@@ -1,7 +1,10 @@
 <template>
   <div class="FtrCourseType">
     <label class="form-label fw-bold">選修別</label>
-    <fieldset class="input-group">
+    <fieldset
+      class="input-group form-control px-1"
+      :class="filters.courseType !== null ? 'border-primary' : 'border-white'"
+    >
       <i class="visually-hidden" />
       <div
         v-for="courseType in filterOptions.courseTypes"

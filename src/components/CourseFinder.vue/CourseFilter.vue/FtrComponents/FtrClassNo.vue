@@ -5,6 +5,7 @@
       v-model.trim="filters.classNo"
       type="text"
       class="form-control"
+      :class="{ 'border-primary': filters.classNo !== '' }"
       list="datalist_classNos"
       placeholder="請輸入課號"
     >

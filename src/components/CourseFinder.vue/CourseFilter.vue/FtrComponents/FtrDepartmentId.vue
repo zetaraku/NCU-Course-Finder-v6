@@ -4,6 +4,7 @@
     <select
       v-model="filters.departmentId"
       class="form-select cursor-pointer"
+      :class="{ 'border-primary': filters.departmentId !== null }"
     >
       <option :value="null">
         【不指定】

@@ -4,7 +4,10 @@
     <fieldset class="input-group">
       <button
         class="form-control text-start text-truncate"
-        :class="{ 'text-muted': filters.classTimes.length === 0 }"
+        :class="{
+          'text-muted': filters.classTimes.length === 0,
+          'border-primary': filters.classTimes.length > 0,
+        }"
         data-bs-toggle="modal"
         data-bs-target=".ClassTimeSelector"
       >

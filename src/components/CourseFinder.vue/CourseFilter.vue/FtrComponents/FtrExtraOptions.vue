@@ -1,12 +1,15 @@
 <template>
   <div class="FtrExtraOptions">
     <label class="form-label fw-bold">進階選項</label>
-    <fieldset class="input-group">
+    <fieldset
+      class="input-group form-control px-1"
+      :class="filters.extraOptions.length > 0 ? 'border-primary' : 'border-white'"
+    >
       <i class="visually-hidden" />
       <div
         v-for="extraOption in filterOptions.extraOptions"
         :key="extraOption.value"
-        class="-x-form-check form-check-inline"
+        class="-x-form-check form-check-inline me-2"
       >
         <label class="form-check-label cursor-pointer">
           <input
