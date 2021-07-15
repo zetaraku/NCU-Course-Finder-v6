@@ -1,4 +1,5 @@
 // make sure to set the sass variables before including bootstrap.scss
 $link-decoration: none;
+$enable-smooth-scroll: false;
 
 @import "bootstrap/scss/bootstrap.scss";
