@@ -69,7 +69,8 @@
                       >
                       <label
                         :for="`classTime_${time}`"
-                        class="btn badge rounded-pill font-monospace m-1"
+                        class="btn badge rounded-pill border-2 font-monospace m-1"
+                        :class="`ClassTime-${time}`"
                       >
                         {{ time }}
                       </label>
@@ -115,6 +116,17 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+$days: 0, 1, 2, 3, 4, 5, 6;
+$hours: 1, 2, 3, 4, Z, 5, 6, 7, 8, 9, A, B, C, D;
+
+@each $day in $days {
+  @each $hour in $hours {
+    .SelectedClassTime-#{$day}-#{$hour} .ClassTime-#{$day}-#{$hour} {
+      border-color: var(--bs-danger) !important;
+    }
+  }
+}
+
 .btn-check {
   &:not(:checked) + .btn {
     color: #6c757d;
