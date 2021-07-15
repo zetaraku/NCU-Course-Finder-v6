@@ -11,7 +11,7 @@
         class="form-select"
       >
         <option :value="null">
-          【預設排序】
+          【預設】
         </option>
         <option
           v-for="column in columns"
