@@ -4,8 +4,8 @@
       <span
         v-for="classTime in course.classTimes"
         :key="classTime"
-        class="badge rounded-pill font-monospace m-1"
-        :class="selectedClassTimes.has(classTime) ? 'bg-danger' : 'bg-primary'"
+        class="badge rounded-pill bg-primary font-monospace m-1"
+        :class="`ClassTime-${classTime}`"
       >
         {{ classTime }}
       </span>
@@ -20,18 +20,20 @@
 </template>
 
 <script>
-import * as Vue from 'vue';
-import * as Vuex from 'vuex';
-
 export default {
   inject: ['course'],
-  setup() {
-    const store = Vuex.useStore();
-    const selectedClassTimes = Vue.computed(() => store.getters.selectedClassTimes);
-
-    return {
-      selectedClassTimes,
-    };
-  },
 };
 </script>
+
+<style lang="scss" scoped>
+$days: 0, 1, 2, 3, 4, 5, 6;
+$hours: 1, 2, 3, 4, Z, 5, 6, 7, 8, 9, A, B, C, D;
+
+@each $day in $days {
+  @each $hour in $hours {
+    .SelectedClassTime-#{$day}-#{$hour} .ClassTime-#{$day}-#{$hour} {
+      background-color: var(--bs-danger) !important;
+    }
+  }
+}
+</style>

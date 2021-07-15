@@ -1,5 +1,8 @@
 <template>
-  <div class="CourseFinder container my-4">
+  <div
+    class="CourseFinder container my-4"
+    :class="[...selectedClassTimes.keys()].map(classTime => `SelectedClassTime-${classTime}`)"
+  >
     <DataStatusIndicator
       class="my-4"
     />
@@ -47,6 +50,7 @@ export default {
     const store = Vuex.useStore();
 
     const courses = Vue.computed(() => store.state.courses);
+    const selectedClassTimes = Vue.computed(() => store.getters.selectedClassTimes);
 
     const filters = Vue.inject('filters');
     const autoFilteringEnabled = Vue.inject('autoFilteringEnabled');
@@ -83,6 +87,7 @@ export default {
     return {
       courses,
       filteredCourses,
+      selectedClassTimes,
 
       resetFilters,
       refreshFilteredCourses,
