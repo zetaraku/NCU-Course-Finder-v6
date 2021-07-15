@@ -20,6 +20,9 @@ const routes = [
 const router = VueRouter.createRouter({
   history: VueRouter.createWebHistory(),
   routes,
+  scrollBehavior() {
+    return { top: 0 };
+  },
 });
 
 VueGtag.trackRouter(router);
