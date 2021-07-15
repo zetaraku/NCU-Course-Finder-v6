@@ -73,11 +73,11 @@ export default {
       filters.classPrefix = null;
     });
 
-    // refresh filteredCourses on courses changed (loaded)
+    // refresh filteredCourses on courses changed (loaded and selection toggled)
     // and also on page load in case the courses is already loaded beforehand
     Vue.watch(courses, () => {
       refreshFilteredCourses();
-    }, { immediate: true });
+    }, { immediate: true, deep: true });
 
     // refresh filteredCourses on filters changed if auto-filtering is enabled
     Vue.watch([filters, autoFilteringEnabled], () => {
