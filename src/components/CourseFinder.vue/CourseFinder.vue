@@ -9,11 +9,6 @@
     <CourseFilter
       class="my-4"
     />
-    <FilteringControls
-      class="my-5"
-      @reset-filters="resetFilters"
-      @refresh-filtered-courses="refreshFilteredCourses"
-    />
     <ResultIndicator
       :value="100 * filteredCourses.length / courses.length"
       class="my-5"
@@ -31,10 +26,9 @@
 /* eslint-disable object-curly-newline */
 import * as Vue from 'vue';
 import * as Vuex from 'vuex';
-import { makeFilters, filterCourses } from '@/helpers';
+import { filterCourses } from '@/helpers';
 import DataStatusIndicator from './DataStatusIndicator.vue';
 import CourseFilter from './CourseFilter.vue';
-import FilteringControls from './FilteringControls.vue';
 import ResultIndicator from './ResultIndicator.vue';
 import CourseView from './CourseView.vue';
 
@@ -42,7 +36,6 @@ export default {
   components: {
     DataStatusIndicator,
     CourseFilter,
-    FilteringControls,
     ResultIndicator,
     CourseView,
   },
@@ -53,19 +46,7 @@ export default {
     const selectedClassTimes = Vue.computed(() => store.getters.selectedClassTimes);
 
     const filters = Vue.inject('filters');
-    const autoFilteringEnabled = Vue.inject('autoFilteringEnabled');
-
-    const filteredCourses = Vue.ref([]);
-
-    function refreshFilteredCourses() {
-      filteredCourses.value = filterCourses(courses.value, filters);
-    }
-    function resetFilters() {
-      // make new filters to override the old ones
-      Object.assign(filters, makeFilters());
-      // manually refresh filteredCourses when auto-filtering is not enabled
-      if (!autoFilteringEnabled.value) refreshFilteredCourses();
-    }
+    const filteredCourses = Vue.computed(() => filterCourses(courses.value, filters));
 
     // reset department/category filter when the college filter is changed
     Vue.watch(() => filters.collegeId, () => {
@@ -73,24 +54,10 @@ export default {
       filters.classPrefix = null;
     });
 
-    // refresh filteredCourses on courses changed (loaded and selection toggled)
-    // and also on page load in case the courses is already loaded beforehand
-    Vue.watch(courses, () => {
-      refreshFilteredCourses();
-    }, { immediate: true, deep: true });
-
-    // refresh filteredCourses on filters changed if auto-filtering is enabled
-    Vue.watch([filters, autoFilteringEnabled], () => {
-      if (autoFilteringEnabled.value) refreshFilteredCourses();
-    });
-
     return {
       courses,
       filteredCourses,
       selectedClassTimes,
-
-      resetFilters,
-      refreshFilteredCourses,
     };
   },
 };

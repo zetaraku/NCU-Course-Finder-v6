@@ -99,7 +99,6 @@ export default {
       selectedClassTimes: Vue.computed(() => store.getters.selectedClassTimes),
       filters,
     });
-    const autoFilteringEnabled = Vue.ref(true);
 
     const closeNavBar = Vue.ref(null);
 
@@ -115,7 +114,6 @@ export default {
 
     Vue.provide('filters', filters);
     Vue.provide('filterOptions', filterOptions);
-    Vue.provide('autoFilteringEnabled', autoFilteringEnabled);
 
     return {
       ENV: import.meta.env,
