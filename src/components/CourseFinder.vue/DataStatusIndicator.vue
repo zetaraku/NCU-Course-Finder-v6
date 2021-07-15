@@ -20,17 +20,13 @@
     </div>
     <div
       v-else
-      class="alert alert-secondary alert-dismissible fade show"
+      class="alert alert-secondary"
     >
       <i class="bi bi-info-circle me-1" />
       <span>
         更新<span class="d-none d-sm-inline">時間</span>：{{ formatDateTime(lastUpdateTime) }}
         ({{ formatRelativeTime(lastUpdateTime) }})
       </span>
-      <button
-        class="btn-close"
-        data-bs-dismiss="alert"
-      />
     </div>
   </div>
 </template>
