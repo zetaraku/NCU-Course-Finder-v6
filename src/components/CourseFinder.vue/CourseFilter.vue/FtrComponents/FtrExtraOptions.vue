@@ -2,7 +2,7 @@
   <div class="FtrExtraOptions">
     <label class="form-label fw-bold">進階選項</label>
     <fieldset
-      class="input-group form-control px-1"
+      class="input-group form-control px-1 border-2"
       :class="filters.extraOptions.length > 0 ? 'border-primary' : 'border-white'"
     >
       <i class="visually-hidden" />

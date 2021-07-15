@@ -3,7 +3,7 @@
     <label class="form-label fw-bold">上課時段</label>
     <fieldset class="input-group">
       <button
-        class="form-control text-start text-truncate"
+        class="form-control text-start text-truncate border-2"
         :class="{
           'text-muted': filters.classTimes.length === 0,
           'border-primary': filters.classTimes.length > 0,

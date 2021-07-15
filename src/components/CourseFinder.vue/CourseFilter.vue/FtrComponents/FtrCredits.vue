@@ -2,7 +2,7 @@
   <div class="FtrCredits">
     <label class="form-label fw-bold">學分數</label>
     <fieldset
-      class="input-group form-control px-1"
+      class="input-group form-control px-1 border-2"
       :class="filters.credits.length > 0 ? 'border-primary' : 'border-white'"
     >
       <i class="visually-hidden" />

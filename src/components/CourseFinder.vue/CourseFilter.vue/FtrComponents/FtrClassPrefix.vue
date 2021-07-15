@@ -3,7 +3,7 @@
     <label class="form-label fw-bold">常用類別</label>
     <select
       v-model="filters.classPrefix"
-      class="form-select cursor-pointer"
+      class="form-select cursor-pointer border-2"
       :class="{ 'border-primary': filters.classPrefix !== null }"
     >
       <option :value="null">

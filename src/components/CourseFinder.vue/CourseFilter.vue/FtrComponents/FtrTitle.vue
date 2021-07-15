@@ -10,7 +10,7 @@
     <input
       v-model.trim="filters.title"
       type="text"
-      class="form-control"
+      class="form-control border-2"
       :class="{ 'border-primary': filters.title !== '' }"
       list="datalist_titles"
       placeholder="請輸入課程名稱"

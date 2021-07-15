@@ -3,7 +3,7 @@
     <label class="form-label fw-bold">學院</label>
     <select
       v-model="filters.collegeId"
-      class="form-select cursor-pointer"
+      class="form-select cursor-pointer border-2"
       :class="{ 'border-primary': filters.collegeId !== null }"
     >
       <option :value="null">

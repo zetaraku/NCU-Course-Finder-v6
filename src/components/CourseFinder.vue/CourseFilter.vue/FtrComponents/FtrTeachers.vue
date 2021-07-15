@@ -10,7 +10,7 @@
     <input
       v-model.trim="filters.teachers"
       type="text"
-      class="form-control"
+      class="form-control border-2"
       :class="{ 'border-primary': filters.teachers !== '' }"
       list="datalist_teachers"
       placeholder="請輸入授課教師名稱"
