@@ -6,7 +6,7 @@
         `開課單位：${describeDepartments(course)}`,
         `授課對象：${describeTarget(course)}`,
       ].join('<br>'), html: true }"
-      class="font-monospace text-nowrap cursor-help"
+      class="font-monospace text-nowrap"
       title=""
     >
       {{ course.classNo }}
