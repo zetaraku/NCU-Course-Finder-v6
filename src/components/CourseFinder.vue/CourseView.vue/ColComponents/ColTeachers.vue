@@ -11,15 +11,15 @@
       </span>
     </template>
     <template v-else>
-      <span
+      <abbr
         v-tooltip="{ content: course.teachers.join('<br>'), html: true }"
-        class="cursor-pointer"
+        title=""
       >
         {{ course.teachers[0] }}
         <small class="text-muted">
           (+{{ course.teachers.length - 1 }})
         </small>
-      </span>
+      </abbr>
     </template>
   </div>
 </template>
