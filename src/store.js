@@ -2,49 +2,49 @@
 import * as Vuex from 'vuex';
 import { fetchCourseData } from '@/services/api';
 
+const LOADING_STATES = {
+  PENDING: 'pending',
+  LOADING: 'loading',
+  LOADED: 'loaded',
+  ERROR: 'error',
+};
+
 const store = Vuex.createStore({
   state() {
     return {
       colleges: [],
       departments: [],
       courses: [],
-      lastUpdateTime: null,
-      errorMessage: null,
+      lastUpdateTime: new Date(0),
+      errorMessage: '',
+      loadingState: LOADING_STATES.PENDING,
     };
   },
   mutations: {
-    SET_COLLEGES(state, payload) {
+    SET_DATA(state, payload) {
       state.colleges = payload.colleges;
-    },
-    SET_DEPARTMENTS(state, payload) {
       state.departments = payload.departments;
-    },
-    SET_COURSES(state, payload) {
       state.courses = payload.courses;
-    },
-    SET_LAST_UPDATE_TIME(state, payload) {
       state.lastUpdateTime = payload.lastUpdateTime;
     },
     SET_ERROR_MESSAGE(state, payload) {
-      state.errorMessage = payload.errorMessage;
+      state.errorMessage = payload;
+    },
+    SET_LOADING_STATE(state, payload) {
+      state.loadingState = payload;
     },
   },
   actions: {
     async loadCourseData(context) {
       try {
-        let {
-          colleges,
-          departments,
-          courses,
-          lastUpdateTime,
-        } = await fetchCourseData();
-
-        context.commit('SET_COLLEGES', { colleges });
-        context.commit('SET_DEPARTMENTS', { departments });
-        context.commit('SET_COURSES', { courses });
-        context.commit('SET_LAST_UPDATE_TIME', { lastUpdateTime });
+        context.commit('SET_LOADING_STATE', LOADING_STATES.LOADING);
+        let data = await fetchCourseData();
+        context.commit('SET_DATA', data);
+        context.commit('SET_LOADING_STATE', LOADING_STATES.LOADED);
       } catch (err) {
-        context.commit('SET_ERROR_MESSAGE', { errorMessage: err.message });
+        context.commit('SET_ERROR_MESSAGE', err.message);
+        context.commit('SET_LOADING_STATE', LOADING_STATES.ERROR);
+        throw err;
       }
     },
   },
