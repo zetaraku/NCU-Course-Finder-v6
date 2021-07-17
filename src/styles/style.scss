@@ -10,3 +10,9 @@ fieldset[disabled] * {
   justify-content: center;
   align-items: center;
 }
+
+@media (hover: none) {
+  abbr {
+    user-select: none;
+  }
+}
