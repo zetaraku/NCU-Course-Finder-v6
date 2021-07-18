@@ -1,6 +1,5 @@
 import * as VueRouter from 'vue-router';
 import * as VueGtag from 'vue-gtag-next';
-import HelloWorld from '@/components/HelloWorld.vue';
 import Information from '@/components/Information.vue';
 import CourseFinder from '@/components/CourseFinder.vue';
 import MySchedule from '@/components/MySchedule.vue';
@@ -8,7 +7,7 @@ import About from '@/components/About.vue';
 import { ErrorPage404, ErrorPage418 } from '@/components/ErrorViews';
 
 const routes = [
-  { path: '/', component: HelloWorld, props: { msg: 'Hello Vue 3 + Vite' } },
+  { path: '/', redirect: { name: 'course-finder' } },
   { path: '/information', name: 'information', component: Information },
   { path: '/course-finder', name: 'course-finder', component: CourseFinder },
   { path: '/my-schedule', name: 'my-schedule', component: MySchedule },
