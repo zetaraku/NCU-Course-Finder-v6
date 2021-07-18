@@ -1,4 +1,5 @@
 /* eslint-disable object-curly-newline */
+/* eslint-disable object-property-newline */
 
 export const DAYS = [
   { key: '0', name: '日', isWeekend: true },
@@ -26,3 +27,13 @@ export const HOURS = [
   { key: 'C', name: 'C', timeInfo: '20:00~20:50', backgroundColor: 'LightSkyBlue' },
   { key: 'D', name: 'D', timeInfo: '21:00~21:50', backgroundColor: 'LightSkyBlue' },
 ];
+
+export const DAY_HOURS = DAYS.flatMap(
+  (day, i) => HOURS.map(
+    (hour, j) => ({
+      i, j,
+      day, hour,
+      key: `${day.key}-${hour.key}`,
+    }),
+  ),
+);
