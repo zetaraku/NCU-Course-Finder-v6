@@ -23,6 +23,14 @@
             data-bs-target=".navbar-collapse"
           >
             <span class="navbar-toggler-icon" />
+            <span
+              v-if="selectedCourses.length > 0"
+              class="
+                badge rounded-pill bg-danger py-1
+                position-absolute top-0 start-0 translate-middle-x
+              "
+              v-text="selectedCourses.length"
+            />
           </button>
           <div class="navbar-collapse collapse justify-content-end">
             <ul class="navbar-nav text-center">
@@ -38,6 +46,11 @@
                   :to="link.to"
                 >
                   {{ link.text }}
+                  <span
+                    v-if="link.badgeText !== undefined"
+                    class="badge rounded-pill bg-danger py-1"
+                    v-text="link.badgeText()"
+                  />
                 </router-link>
               </li>
             </ul>
@@ -99,6 +112,7 @@ export default {
       selectedClassTimes: Vue.computed(() => store.getters.selectedClassTimes),
       filters,
     });
+    const selectedCourses = Vue.computed(() => store.getters.selectedCourses);
 
     const closeNavBar = Vue.ref(null);
 
@@ -121,9 +135,10 @@ export default {
       links: [
         { text: '選課說明', to: { name: 'information' } },
         { text: '課程查詢', to: { name: 'course-finder' } },
-        { text: '我的課表', to: { name: 'my-schedule' } },
+        { text: '我的課表', to: { name: 'my-schedule' }, badgeText: () => selectedCourses.value.length },
         { text: '關於本站', to: { name: 'about' } },
       ],
+      selectedCourses,
 
       closeNavBar,
     };
