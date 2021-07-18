@@ -6,7 +6,7 @@
     >
       <i class="bi bi-clock me-1" />
       <span>
-        取得資料中 ... 請稍候 ...
+        載入資料中 ... 請稍候 ...
       </span>
     </div>
     <div

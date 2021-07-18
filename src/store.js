@@ -4,6 +4,7 @@ import { fetchCourseData } from '@/services/api';
 
 const LOADING_STATES = {
   PENDING: 'pending',
+  FETCHING: 'fetching',
   LOADING: 'loading',
   LOADED: 'loaded',
   ERROR: 'error',
@@ -37,8 +38,13 @@ const store = Vuex.createStore({
   actions: {
     async loadCourseData(context) {
       try {
-        context.commit('SET_LOADING_STATE', LOADING_STATES.LOADING);
+        context.commit('SET_LOADING_STATE', LOADING_STATES.FETCHING);
         let data = await fetchCourseData();
+
+        context.commit('SET_LOADING_STATE', LOADING_STATES.LOADING);
+        // allow UI to be re-rendered here
+        await new Promise(resolve => setTimeout(resolve, 0));
+
         context.commit('SET_DATA', data);
         context.commit('SET_LOADING_STATE', LOADING_STATES.LOADED);
       } catch (err) {
