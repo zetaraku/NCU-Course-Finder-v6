@@ -38,6 +38,7 @@ export function makeFilterOptions({ colleges, departments, courses, selectedClas
       { value: 'HI0', text: '◆ 共同必修 - 大二歷史' },
       { value: 'PE', text: '◆ 共同必修 - 體育課程' },
       { value: 'SC', text: '◆ 共同必修 - 服務學習' },
+      { value: 'ZZ', text: '◆ 我的課表 - 課表預留時段' },
     ],
     titles: Vue.computed(
       () => [...new Set(Vue.unref(courses).map(course => course.title))],

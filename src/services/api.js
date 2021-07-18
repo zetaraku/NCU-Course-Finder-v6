@@ -1,12 +1,36 @@
+import { DAY_HOURS } from '@/consts';
+
+function makePlaceholders(dayHours) {
+  return dayHours.map(
+    ({ i, j, key }) => ({
+      serialNo: -(10000 + 100 * i + 1 * j),
+      classNo: `ZZ000${key.replace('-', '')}`,
+      title: '【預留時段】',
+      credit: 0,
+      passwordCard: null,
+      teachers: [],
+      classTimes: [key],
+      limitCnt: null,
+      admitCnt: 0,
+      waitCnt: 0,
+      collegeIds: [],
+      departmentIds: [],
+      classRooms: [],
+      isPlaceholder: true,
+    }),
+  );
+}
+
 function preprocessCourses(courses) {
+  // add class time placeholders for MySchedule
+  courses.push(...makePlaceholders(DAY_HOURS));
+
   for (let course of courses) {
-    /* eslint-disable no-param-reassign */
     course.classNo = `${course.classNo.slice(0, 6)}-${course.classNo.slice(6)}`;
     course.limitCnt = course.limitCnt ?? Infinity;
     course.remainCnt = course.limitCnt - course.admitCnt;
     course.successRate = (100 * course.remainCnt) / (course.waitCnt + 1);
     course.fullRate = (100 * course.admitCnt) / course.limitCnt;
-    /* eslint-enable no-param-reassign */
   }
 }
 

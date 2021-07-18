@@ -19,6 +19,7 @@ export default {
   setup() {
     return {
       getCourseDetailUrl(course) {
+        if (course.isPlaceholder) return null;
         return `${COURSE_DETAIL_URL}?crs=${course.serialNo}`;
       },
     };

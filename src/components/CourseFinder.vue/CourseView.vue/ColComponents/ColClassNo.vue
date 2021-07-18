@@ -7,6 +7,7 @@
         `授課對象：${describeTarget(course)}`,
       ].join('<br>'), html: true }"
       class="font-monospace text-nowrap"
+      :class="{ 'text-muted': course.isPlaceholder }"
       title=""
     >
       {{ course.classNo }}
