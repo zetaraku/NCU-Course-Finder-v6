@@ -1,25 +1,30 @@
 <template>
-  <div
-    class="CourseFinder container my-4"
-    :class="[...selectedClassTimes.keys()].map(classTime => `SelectedClassTime-${classTime}`)"
-  >
-    <DataStatusIndicator
-      class="my-4"
-    />
-    <CourseFilter
-      class="my-4"
-    />
-    <ResultIndicator
-      :value="100 * filteredCourses.length / courses.length"
-      class="my-5"
+  <template v-if="$store.state.loadingState !== 'loaded'">
+    <LoadingView />
+  </template>
+  <template v-else>
+    <div
+      class="CourseFinder container my-4"
+      :class="[...selectedClassTimes.keys()].map(classTime => `SelectedClassTime-${classTime}`)"
     >
-      共找到 {{ filteredCourses.length }} / {{ courses.length }} 筆符合的課程
-    </ResultIndicator>
-    <CourseView
-      :courses="filteredCourses"
-      class="my-4"
-    />
-  </div>
+      <DataStatusIndicator
+        class="my-4"
+      />
+      <CourseFilter
+        class="my-4"
+      />
+      <ResultIndicator
+        :value="100 * filteredCourses.length / courses.length"
+        class="my-5"
+      >
+        共找到 {{ filteredCourses.length }} / {{ courses.length }} 筆符合的課程
+      </ResultIndicator>
+      <CourseView
+        :courses="filteredCourses"
+        class="my-4"
+      />
+    </div>
+  </template>
 </template>
 
 <script>
@@ -27,6 +32,7 @@
 import * as Vue from 'vue';
 import * as Vuex from 'vuex';
 import { filterCourses } from '@/helpers';
+import LoadingView from '@/components/LoadingView.vue';
 import DataStatusIndicator from './DataStatusIndicator.vue';
 import CourseFilter from './CourseFilter.vue';
 import ResultIndicator from './ResultIndicator.vue';
@@ -34,6 +40,7 @@ import CourseView from './CourseView.vue';
 
 export default {
   components: {
+    LoadingView,
     DataStatusIndicator,
     CourseFilter,
     ResultIndicator,
