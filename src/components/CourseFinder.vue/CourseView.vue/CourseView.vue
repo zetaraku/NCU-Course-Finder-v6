@@ -5,14 +5,18 @@
       :page-count="pageCount"
       class="mb-4"
     />
-    <CourseGrid
-      :courses="coursesInCurrentPage"
-      class="my-4 d-block d-xl-none"
-    />
-    <CourseTable
-      :courses="coursesInCurrentPage"
-      class="my-4 d-none d-xl-block"
-    />
+    <template v-if="!isViewportXlAndLarger">
+      <CourseGrid
+        :courses="coursesInCurrentPage"
+        class="my-4"
+      />
+    </template>
+    <template v-else>
+      <CourseTable
+        :courses="coursesInCurrentPage"
+        class="my-4"
+      />
+    </template>
     <Pagination
       v-model:currentPage="currentPage"
       :page-count="pageCount"
@@ -23,6 +27,7 @@
 
 <script>
 import * as Vue from 'vue';
+import * as VueUse from '@vueuse/core';
 import { sortCourses, paginate } from '@/helpers';
 import CourseGrid from './CourseGrid.vue';
 import CourseTable from './CourseTable.vue';
@@ -41,6 +46,9 @@ export default {
     },
   },
   setup(props) {
+    const breakpoints = VueUse.useBreakpoints(VueUse.breakpointsBootstrapV5);
+    const isViewportXlAndLarger = breakpoints.greater('xl');
+
     // sorting
     const sorting = Vue.ref({
       column: null,
@@ -74,6 +82,8 @@ export default {
     Vue.provide('sorting', sorting);
 
     return {
+      isViewportXlAndLarger,
+
       pageCount,
       currentPage,
       coursesInCurrentPage,
