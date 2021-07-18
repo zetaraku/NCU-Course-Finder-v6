@@ -25,3 +25,10 @@ export function paginate(items, pageSize, currentPage = 1) {
     pageSize * (currentPage),
   );
 }
+
+export function paginateIndex(itemsLength, pageSize, currentPage = 1) {
+  let offset = pageSize * (currentPage - 1);
+  let length = Math.min(pageSize, itemsLength - offset);
+
+  return [...Array(length).keys()].map(n => n + offset);
+}
