@@ -21,11 +21,11 @@ export const HOURS = [
   { key: '6', name: '6', timeInfo: '14:00~14:50' },
   { key: '7', name: '7', timeInfo: '15:00~15:50' },
   { key: '8', name: '8', timeInfo: '16:00~16:50' },
-  { key: '9', name: '9', timeInfo: '17:00~17:50' },
-  { key: 'A', name: 'A', timeInfo: '18:00~18:50', backgroundColor: 'LightSkyBlue' },
-  { key: 'B', name: 'B', timeInfo: '19:00~19:50', backgroundColor: 'LightSkyBlue' },
-  { key: 'C', name: 'C', timeInfo: '20:00~20:50', backgroundColor: 'LightSkyBlue' },
-  { key: 'D', name: 'D', timeInfo: '21:00~21:50', backgroundColor: 'LightSkyBlue' },
+  { key: '9', name: '9', timeInfo: '17:00~17:50', hideInPrint: true },
+  { key: 'A', name: 'A', timeInfo: '18:00~18:50', backgroundColor: 'LightSkyBlue', hideInPrint: true },
+  { key: 'B', name: 'B', timeInfo: '19:00~19:50', backgroundColor: 'LightSkyBlue', hideInPrint: true },
+  { key: 'C', name: 'C', timeInfo: '20:00~20:50', backgroundColor: 'LightSkyBlue', hideInPrint: true },
+  { key: 'D', name: 'D', timeInfo: '21:00~21:50', backgroundColor: 'LightSkyBlue', hideInPrint: true },
 ];
 
 export const DAY_HOURS = DAYS.flatMap(
