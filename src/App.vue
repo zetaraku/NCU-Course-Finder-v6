@@ -122,9 +122,9 @@ export default {
         { toggle: false },
       );
       closeNavBar.value = () => { bsCollapse.hide(); };
-    });
 
-    store.dispatch('loadCourseData');
+      await store.dispatch('loadCourseData');
+    });
 
     Vue.provide('filters', filters);
     Vue.provide('filterOptions', filterOptions);
