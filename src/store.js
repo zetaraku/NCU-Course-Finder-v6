@@ -46,11 +46,30 @@ const store = Vuex.createStore({
         await new Promise(resolve => setTimeout(resolve, 0));
 
         context.commit('SET_DATA', data);
+        await context.dispatch('loadSelectedCourses');
         context.commit('SET_LOADING_STATE', LOADING_STATES.LOADED);
       } catch (err) {
         context.commit('SET_ERROR_MESSAGE', err.message);
         context.commit('SET_LOADING_STATE', LOADING_STATES.ERROR);
         throw err;
+      }
+    },
+    saveSelectedCourses(context) {
+      localStorage.setItem(
+        'selectedCourses',
+        context.getters.selectedCourses.map(e => e.serialNo).join(','),
+      );
+    },
+    loadSelectedCourses(context) {
+      let importText = localStorage.getItem('selectedCourses');
+
+      if (importText === null) return;
+
+      let serialNoSet = new Set(importText.split(',').map(Number));
+      for (let course of context.state.courses) {
+        if (serialNoSet.has(course.serialNo)) {
+          course.selected = true;
+        }
       }
     },
   },

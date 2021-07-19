@@ -123,6 +123,10 @@ export default {
       );
       closeNavBar.value = () => { bsCollapse.hide(); };
 
+      window.addEventListener('beforeunload', () => {
+        store.dispatch('saveSelectedCourses');
+      });
+
       await store.dispatch('loadCourseData');
     });
 
