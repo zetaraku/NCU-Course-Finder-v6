@@ -1,4 +1,7 @@
 <template>
+  <small class="d-inline-block text-muted p-1 d-print-none">
+    共 {{ totalCredits }} 學分
+  </small>
   <div class="MyScheduleGrid">
     <template
       v-for="dayHour in DAY_HOURS"
@@ -27,6 +30,9 @@ export default {
   setup() {
     const store = Vuex.useStore();
 
+    const totalCredits = Vue.computed(
+      () => store.getters.selectedCourses.reduce((acc, e) => acc + e.credit, 0),
+    );
     const classTimeCoursesMapping = Vue.computed(() => {
       let result = new Map(
         DAY_HOURS.map(dayHour => [dayHour.key, []]),
@@ -44,6 +50,7 @@ export default {
     return {
       DAY_HOURS,
 
+      totalCredits,
       classTimeCoursesMapping,
     };
   },
