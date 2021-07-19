@@ -1,16 +1,23 @@
 <template>
-  <div class="MySchedule container my-4">
-    <MyScheduleHeader />
-    <MyScheduleGrid />
-  </div>
+  <template v-if="$store.state.loadingState !== 'loaded'">
+    <LoadingView />
+  </template>
+  <template v-else>
+    <div class="MySchedule container my-4">
+      <MyScheduleHeader />
+      <MyScheduleGrid />
+    </div>
+  </template>
 </template>
 
 <script>
+import LoadingView from '@/components/LoadingView.vue';
 import MyScheduleHeader from './MyScheduleHeader.vue';
 import MyScheduleGrid from './MyScheduleGrid.vue';
 
 export default {
   components: {
+    LoadingView,
     MyScheduleHeader,
     MyScheduleGrid,
   },
