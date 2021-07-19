@@ -5,7 +5,7 @@
       :key="column.key"
     >
       <label
-        v-tooltip="column.description"
+        v-tooltip="{ content: column.description, html: true }"
         class="text-nowrap cursor-pointer"
         :class="column.key === sorting.column?.key ? 'fw-bold' : 'fw-normal'"
         @click="toggleSorting(column);"
