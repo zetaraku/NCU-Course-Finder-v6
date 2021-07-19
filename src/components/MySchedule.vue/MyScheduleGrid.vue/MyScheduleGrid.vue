@@ -4,27 +4,47 @@
       v-for="dayHour in DAY_HOURS"
       :key="dayHour.key"
     >
-      <div
+      <MyScheduleGridTile
         v-if="!dayHour.day.isWeekend"
-        class="border text-muted text-center p-2"
-        style="min-height: 120px;"
+        :day-hour="dayHour"
+        :courses="classTimeCoursesMapping.get(dayHour.key)"
         :style="{ 'grid-column': 1 + dayHour.i, 'grid-row': 1 + dayHour.j }"
-      >
-        <label>
-          {{ dayHour.key }}
-        </label>
-      </div>
+      />
     </template>
   </div>
 </template>
 
 <script>
+import * as Vue from 'vue';
+import * as Vuex from 'vuex';
 import { DAY_HOURS } from '@/consts';
+import MyScheduleGridTile from './MyScheduleGridTile.vue';
 
 export default {
+  components: {
+    MyScheduleGridTile,
+  },
   setup() {
+    const store = Vuex.useStore();
+
+    const classTimeCoursesMapping = Vue.computed(() => {
+      let result = new Map(
+        DAY_HOURS.map(dayHour => [dayHour.key, []]),
+      );
+
+      for (let course of store.getters.selectedCourses) {
+        for (let classTime of course.classTimes) {
+          result.get(classTime)?.push(course);
+        }
+      }
+
+      return result;
+    });
+
     return {
       DAY_HOURS,
+
+      classTimeCoursesMapping,
     };
   },
 };
