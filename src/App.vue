@@ -9,10 +9,10 @@
       >
         <div class="container">
           <a class="navbar-brand me-0 cursor-pointer">
-            <i class="bi mx-3 fs-3 bi-compass" />
+            <i class="bi mx-2 mx-sm-3 fs-3 bi-compass" />
           </a>
           <router-link
-            class="navbar-brand"
+            class="navbar-brand me-0"
             to="/"
           >
             NCU Course Finder v6
