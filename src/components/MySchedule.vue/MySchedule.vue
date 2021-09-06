@@ -32,10 +32,10 @@ export default {
     size: A4 portrait;
   }
 
-  * {
-    -webkit-print-color-adjust: exact !important;
-    color-adjust: exact !important;
-  }
+  // * {
+  //   -webkit-print-color-adjust: exact !important;
+  //   color-adjust: exact !important;
+  // }
 
   :root {
     font-size: 16px;
