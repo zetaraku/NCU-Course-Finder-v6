@@ -52,9 +52,9 @@ export default {
 .MyScheduleGridCourse {
   font-size: calc(0.8em + 0.4vw);
 
-  @media (max-width: 575.98px) {
+  @media screen and (max-width: 575.98px) {
     .ColClassNo, .ColTitle {
-      font-size: x-small
+      font-size: x-small;
     }
   }
 
