@@ -12,20 +12,20 @@ export const DAYS = [
 ];
 
 export const HOURS = [
-  { key: '1', name: '1', timeInfo: '08:00~08:50' },
-  { key: '2', name: '2', timeInfo: '09:00~09:50' },
-  { key: '3', name: '3', timeInfo: '10:00~10:50' },
-  { key: '4', name: '4', timeInfo: '11:00~11:50' },
-  { key: 'Z', name: 'Z', timeInfo: '12:00~12:50', backgroundColor: 'Gold' },
-  { key: '5', name: '5', timeInfo: '13:00~13:50' },
-  { key: '6', name: '6', timeInfo: '14:00~14:50' },
-  { key: '7', name: '7', timeInfo: '15:00~15:50' },
-  { key: '8', name: '8', timeInfo: '16:00~16:50' },
-  { key: '9', name: '9', timeInfo: '17:00~17:50', hideInPrint: true },
-  { key: 'A', name: 'A', timeInfo: '18:00~18:50', backgroundColor: 'LightSkyBlue', hideInPrint: true },
-  { key: 'B', name: 'B', timeInfo: '19:00~19:50', backgroundColor: 'LightSkyBlue', hideInPrint: true },
-  { key: 'C', name: 'C', timeInfo: '20:00~20:50', backgroundColor: 'LightSkyBlue', hideInPrint: true },
-  { key: 'D', name: 'D', timeInfo: '21:00~21:50', backgroundColor: 'LightSkyBlue', hideInPrint: true },
+  { key: '1', name: '1', timeInfo: '08:00~08:50', page: 1 },
+  { key: '2', name: '2', timeInfo: '09:00~09:50', page: 1 },
+  { key: '3', name: '3', timeInfo: '10:00~10:50', page: 1 },
+  { key: '4', name: '4', timeInfo: '11:00~11:50', page: 1 },
+  { key: 'Z', name: 'Z', timeInfo: '12:00~12:50', page: 1, backgroundColor: 'Gold' },
+  { key: '5', name: '5', timeInfo: '13:00~13:50', page: 1 },
+  { key: '6', name: '6', timeInfo: '14:00~14:50', page: 1 },
+  { key: '7', name: '7', timeInfo: '15:00~15:50', page: 1 },
+  { key: '8', name: '8', timeInfo: '16:00~16:50', page: 1 },
+  { key: '9', name: '9', timeInfo: '17:00~17:50', page: 2 },
+  { key: 'A', name: 'A', timeInfo: '18:00~18:50', page: 2, backgroundColor: 'LightSkyBlue' },
+  { key: 'B', name: 'B', timeInfo: '19:00~19:50', page: 2, backgroundColor: 'LightSkyBlue' },
+  { key: 'C', name: 'C', timeInfo: '20:00~20:50', page: 2, backgroundColor: 'LightSkyBlue' },
+  { key: 'D', name: 'D', timeInfo: '21:00~21:50', page: 2, backgroundColor: 'LightSkyBlue' },
 ];
 
 export const DAY_HOURS = DAYS.flatMap(

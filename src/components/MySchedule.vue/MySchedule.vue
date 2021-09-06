@@ -42,10 +42,8 @@ export default {
   }
 
   html, body {
-    height: 100vh;
     margin: 0 !important;
     padding: 0 !important;
-    overflow: hidden;
   }
 
   header {

@@ -2,16 +2,29 @@
   <small class="d-inline-block text-muted p-1 d-print-none">
     共 {{ totalCredits }} 學分
   </small>
-  <div class="MyScheduleGrid">
+  <div class="MyScheduleGrid day">
     <template
       v-for="dayHour in DAY_HOURS"
       :key="dayHour.key"
     >
       <MyScheduleGridTile
-        v-if="!dayHour.day.isWeekend"
+        v-if="dayHour.hour.page === 1 && !dayHour.day.isWeekend"
         :day-hour="dayHour"
         :courses="classTimeCoursesMapping.get(dayHour.key)"
         :style="{ 'grid-column': 1 + dayHour.i, 'grid-row': 1 + dayHour.j }"
+      />
+    </template>
+  </div>
+  <div class="MyScheduleGrid night">
+    <template
+      v-for="dayHour in DAY_HOURS"
+      :key="dayHour.key"
+    >
+      <MyScheduleGridTile
+        v-if="dayHour.hour.page === 2 && !dayHour.day.isWeekend"
+        :day-hour="dayHour"
+        :courses="classTimeCoursesMapping.get(dayHour.key)"
+        :style="{ 'grid-column': 1 + dayHour.i, 'grid-row': 1 + dayHour.j - (9) }"
       />
     </template>
   </div>
@@ -61,9 +74,20 @@ export default {
 .MyScheduleGrid {
   display: grid;
   justify-content: center;
-  grid-template-columns: 0 repeat(5, minmax(0, 1fr)) 0;
-  grid-template-rows: repeat(14, auto);
   gap: 10px 10px;
   margin: 0 -10px;
+
+  grid-template-columns: 0 repeat(5, minmax(0, 1fr)) 0;
+
+  &.day {
+    grid-template-rows: repeat(10, auto);
+  }
+  &.night {
+    grid-template-rows: repeat(4, auto);
+  }
+
+  @media print {
+    page-break-inside: avoid;
+  }
 }
 </style>

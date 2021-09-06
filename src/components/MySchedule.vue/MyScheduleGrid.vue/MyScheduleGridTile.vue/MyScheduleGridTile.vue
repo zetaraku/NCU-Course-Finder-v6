@@ -1,7 +1,6 @@
 <template>
   <div
     class="MyScheduleGridTile d-flex flex-column border text-center px-1 px-lg-2 py-2"
-    :class="{ 'd-print-none': dayHour.hour.hideInPrint }"
     :style="{ 'background-color': dayHour.hour.backgroundColor }"
   >
     <label class="flex-grow-0 text-muted">
