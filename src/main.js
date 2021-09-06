@@ -10,11 +10,6 @@ import 'bootstrap-icons/font/bootstrap-icons.css';
 import 'v-tooltip/dist/v-tooltip.css';
 import './styles/style.scss';
 
-window.addEventListener('unhandledrejection', event => {
-  // eslint-disable-next-line no-alert
-  window.alert(event.reason);
-});
-
 const app = Vue.createApp(App);
 
 app.use(store);
