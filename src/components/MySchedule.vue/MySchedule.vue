@@ -38,6 +38,7 @@ export default {
   }
 
   :root {
+    font-size: 16px;
     --bs-font-sans-serif: 'Noto Sans TC', sans-serif !important;
   }
 
