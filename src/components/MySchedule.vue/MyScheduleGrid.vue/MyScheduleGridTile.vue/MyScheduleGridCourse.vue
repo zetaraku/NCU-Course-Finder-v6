@@ -57,11 +57,5 @@ export default {
       font-size: x-small;
     }
   }
-
-  @media print {
-    .ColTitle a {
-      color: var(--bs-dark) !important;
-    }
-  }
 }
 </style>

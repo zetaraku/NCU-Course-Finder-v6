@@ -60,6 +60,10 @@ export default {
 
   .MySchedule {
     max-width: 100% !important;
+
+    .ColTitle a {
+      color: var(--bs-dark) !important;
+    }
   }
 }
 </style>
