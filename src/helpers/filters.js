@@ -50,9 +50,9 @@ export function makeFilterOptions({ colleges, departments, courses, selectedClas
       () => [...new Set(Vue.unref(courses).map(course => course.classNo.slice(0, 6)))],
     ),
     classTimes: [],
-    credits: [
-      ...Array(1 + /* MAX_CREDITS: */ 6).keys(),
-    ],
+    credits: Vue.computed(
+      () => [...Array(1 + Math.max(0, ...Vue.unref(courses).map(course => course.credit))).keys()],
+    ),
     courseTypes: [
       { value: null, text: '【不篩選】' },
       { value: 'ELECTIVE', text: '選修' },
