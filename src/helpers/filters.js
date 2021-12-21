@@ -49,7 +49,7 @@ export function makeFilterOptions({ colleges, departments, courses, selectedClas
     classNos: Vue.computed(
       () => [...new Set(Vue.unref(courses).map(course => course.classNo.slice(0, 6)))],
     ),
-    classTimes: [],
+    classTimes: /* unused */ [],
     credits: Vue.computed(
       () => [...Array(1 + Math.max(0, ...Vue.unref(courses).map(course => course.credit))).keys()],
     ),
