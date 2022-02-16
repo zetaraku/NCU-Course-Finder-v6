@@ -1,7 +1,7 @@
 <template>
   <div class="CourseView">
     <Pagination
-      v-model:currentPage="currentPage"
+      v-model:current-page="currentPage"
       :page-count="pageCount"
       class="mb-4"
     />
@@ -18,7 +18,7 @@
       />
     </template>
     <Pagination
-      v-model:currentPage="currentPage"
+      v-model:current-page="currentPage"
       :page-count="pageCount"
       class="mt-4"
     />

@@ -5,7 +5,7 @@
         <button
           class="page-link"
           aria-label="上一頁"
-          @click="$emit('update:currentPage', Math.max(1, currentPage - 1));"
+          @click="$emit('update:current-page', Math.max(1, currentPage - 1));"
         >
           <i class="bi bi-chevron-left" />
         </button>
@@ -19,7 +19,7 @@
       >
         <button
           class="page-link px-0"
-          @click="$emit('update:currentPage', page);"
+          @click="$emit('update:current-page', page);"
         >
           {{ page ?? '...' }}
         </button>
@@ -29,7 +29,7 @@
         <button
           class="page-link"
           aria-label="下一頁"
-          @click="$emit('update:currentPage', Math.min(currentPage + 1, pageCount));"
+          @click="$emit('update:current-page', Math.min(currentPage + 1, pageCount));"
         >
           <i class="bi bi-chevron-right" />
         </button>
@@ -53,7 +53,7 @@ export default {
     },
   },
   emits: [
-    'update:currentPage',
+    'update:current-page',
   ],
   setup() {
     return {
