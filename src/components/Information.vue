@@ -23,6 +23,7 @@
 <script>
 const INFORMATION_URL_PREFIX = 'http://pdc.adm.ncu.edu.tw/Course/course';
 
+// Data Source: https://cis.ncu.edu.tw/Course/main/news/stdExplanation
 const links = [
   { url: 'https://cis.ncu.edu.tw/Course/main', title: '🎯 國立中央大學選課系統' },
   { fileName: 'COUR_S.pdf', title: '📅 選課時程' },
