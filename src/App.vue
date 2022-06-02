@@ -97,7 +97,7 @@
 <script>
 import * as Vue from 'vue';
 import * as Vuex from 'vuex';
-import bootstrap from 'bootstrap';
+import * as bootstrap from 'bootstrap';
 import { makeFilters, makeFilterOptions } from '@/helpers';
 
 export default {
