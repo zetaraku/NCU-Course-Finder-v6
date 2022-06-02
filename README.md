@@ -1,7 +1,7 @@
 # NCU-Course-Finder-v6
 
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fzetaraku%2FNCU-Course-Finder-v6.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fzetaraku%2FNCU-Course-Finder-v6?ref=badge_shield)
-[![Netlify Status](https://api.netlify.com/api/v1/badges/94c83909-ae86-4224-97d6-ad7be2342d19/deploy-status)](https://app.netlify.com/sites/ncucf-v6-beta/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/94c83909-ae86-4224-97d6-ad7be2342d19/deploy-status)](https://app.netlify.com/sites/ncucf-v6/deploys)
 
 NCU Course Finder - A rescue from the place where Nobody Care U.
 
