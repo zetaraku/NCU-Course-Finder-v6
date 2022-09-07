@@ -21,15 +21,15 @@
 </template>
 
 <script>
-const INFORMATION_URL_PREFIX = 'http://pdc.adm.ncu.edu.tw/Course/course';
+const INFORMATION_URL_PREFIX = 'https://pdc.adm.ncu.edu.tw/Course/course';
 
 // Data Source: https://cis.ncu.edu.tw/Course/main/news/stdExplanation
 const links = [
   { url: 'https://cis.ncu.edu.tw/Course/main', title: '🎯 國立中央大學選課系統' },
   { fileName: 'COUR_S.pdf', title: '📅 選課時程' },
-  { fileName: 'COUR_D.pdf', title: '📝 選課程序相關說明' },
-  { fileName: 'COUR_R.pdf', title: '📃 國立中央大學學生選課辦法' },
   { fileName: 'COUR_U.pdf', title: '📝 課程時間表使用說明' },
+  { fileName: 'COUR_R.pdf', title: '📃 國立中央大學學生選課辦法' },
+  { fileName: 'COUR_D.pdf', title: '📝 選課程序相關說明' },
   { fileName: 'COUR_09.pdf', title: '📘 「通識課程」選課說明' },
   { fileName: 'COUR_01.pdf', title: '📘 「體育課程」選課說明' },
   { fileName: 'COUR_11.pdf', title: '📘 「大一國文」選課說明' },
