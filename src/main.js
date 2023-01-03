@@ -4,7 +4,6 @@ import VTooltipPlugin from 'v-tooltip';
 import store from './store';
 import router from './router';
 import App from './App.vue';
-import 'bootstrap/dist/js/bootstrap';
 import './styles/bootstrap-custom.scss';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import 'v-tooltip/dist/v-tooltip.css';
