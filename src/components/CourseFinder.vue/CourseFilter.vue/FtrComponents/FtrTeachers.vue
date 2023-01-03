@@ -1,11 +1,11 @@
 <template>
   <div class="FtrTeachers">
-    <label
-      v-tooltip.right="'※可用空格隔開多個關鍵字'"
-      class="form-label fw-bold cursor-pointer"
-    >
+    <label class="form-label fw-bold">
       授課教師
-      <i class="bi bi-info-circle ms-1 pe-2" />
+      <i
+        v-tooltip="'※可用空格隔開多個關鍵字'"
+        class="bi bi-info-circle ms-1 pe-2 cursor-pointer"
+      />
     </label>
     <input
       v-model.trim="filters.teachers"
