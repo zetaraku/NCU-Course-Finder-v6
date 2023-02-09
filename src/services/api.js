@@ -34,25 +34,29 @@ function preprocessCourses(courses) {
   }
 }
 
-function computeClassPrefixMapping(courses) {
-  let classPrefixMapping = new Map();
+function computeClassPrefixesMapping(courses) {
+  let classPrefixesMapping = new Map();
 
   for (let course of courses) {
     for (let departmentId of course.departmentIds) {
       let classPrefix = course.classNo.slice(0, 2);
-      classPrefixMapping.set(departmentId, classPrefix);
+
+      let classPrefixes = classPrefixesMapping.get(departmentId) ?? new Set();
+      classPrefixes.add(classPrefix);
+
+      classPrefixesMapping.set(departmentId, classPrefixes);
     }
   }
 
-  return classPrefixMapping;
+  return classPrefixesMapping;
 }
 
 function preprocessDepartments(departments, { courses }) {
-  let classPrefixMapping = computeClassPrefixMapping(courses);
+  let classPrefixesMapping = computeClassPrefixesMapping(courses);
 
   for (let department of departments) {
     /* eslint-disable no-param-reassign */
-    department.classPrefix = classPrefixMapping.get(department.departmentId);
+    department.classPrefixes = Array.from(classPrefixesMapping.get(department.departmentId) ?? new Set());
     /* eslint-enable no-param-reassign */
   }
 }

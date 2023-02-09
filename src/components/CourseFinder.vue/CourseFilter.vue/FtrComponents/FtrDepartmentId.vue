@@ -14,7 +14,8 @@
         :key="department.departmentId"
         :value="department.departmentId"
       >
-        {{ department.departmentName }} ({{ department.classPrefix ?? "無資料" }})
+        {{ department.departmentName }}
+        ({{ department.classPrefixes.length > 0 ? department.classPrefixes.join('/') : '無資料' }})
       </option>
     </select>
   </div>
