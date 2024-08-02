@@ -57,7 +57,7 @@ const store = Vuex.createStore({
     saveSelectedCourses(context) {
       localStorage.setItem(
         'selectedCourses',
-        context.getters.selectedCourses.map(e => e.serialNo).join(','),
+        JSON.stringify(context.getters.selectedCourses.map(e => e.classNo)),
       );
     },
     loadSelectedCourses(context) {
@@ -65,10 +65,21 @@ const store = Vuex.createStore({
 
       if (importText === null) return;
 
-      let serialNoSet = new Set(importText.split(',').map(Number));
-      for (let course of context.state.courses) {
-        if (serialNoSet.has(course.serialNo)) {
-          course.selected = true;
+      try {
+        let classNoSet = new Set(JSON.parse(importText));
+
+        for (let course of context.state.courses) {
+          if (classNoSet.has(course.classNo)) {
+            course.selected = true;
+          }
+        }
+      } catch {
+        let serialNoSet = new Set(importText.split(',').map(Number));
+
+        for (let course of context.state.courses) {
+          if (serialNoSet.has(course.serialNo)) {
+            course.selected = true;
+          }
         }
       }
     },
