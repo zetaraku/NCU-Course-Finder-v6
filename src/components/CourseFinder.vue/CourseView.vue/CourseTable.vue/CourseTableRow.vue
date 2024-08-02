@@ -26,6 +26,7 @@
     </td>
     <td style="width: 175px;">
       <ColClassTime class="fs-5" />
+      <ColClassRoom class="fs-5" />
     </td>
     <td style="width: 60px;">
       <label class="p-2 cursor-pointer">

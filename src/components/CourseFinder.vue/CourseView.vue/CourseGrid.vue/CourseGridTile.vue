@@ -25,6 +25,7 @@
       </div>
       <div class="flex-centered mt-3">
         <ColClassTime />
+        <ColClassRoom />
       </div>
       <div class="m-0">
         <label class="position-absolute top-0 end-0 px-2 py-1 m-sm-1 cursor-pointer">

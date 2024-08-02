@@ -14,6 +14,6 @@ export const COLUMNS = [
     ].join('<br>'),
   },
   { name: '飽和度', key: 'fullRate', sortType: 'number', description: '飽和度＝中選人數／人數限制' },
-  { name: '上課時段', key: 'classTimes', sortType: 'length' },
+  { name: '上課時段/教室', key: 'classTimes', sortType: 'length' },
   { name: '是否選擇', abbrName: '', key: 'selected', sortType: 'truthy', description: '※勾選以將此課程加到【我的課表】' },
 ];
