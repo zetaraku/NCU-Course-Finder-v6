@@ -51,7 +51,7 @@ export function makeFilterOptions({ colleges, departments, courses, selectedClas
     ),
     classTimes: /* unused */ [],
     credits: Vue.computed(
-      () => [...Array(1 + Math.max(0, ...Vue.unref(courses).map(course => course.credit))).keys()],
+      () => [...new Set(Vue.unref(courses).map(course => course.credit))].toSorted((a, b) => a - b),
     ),
     courseTypes: [
       { value: null, text: '【不篩選】' },
