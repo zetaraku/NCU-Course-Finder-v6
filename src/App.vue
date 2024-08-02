@@ -15,7 +15,7 @@
             class="navbar-brand me-0"
             to="/"
           >
-            NCU Course Finder v6
+            {{ ENV.VITE_APP_TITLE }}
           </router-link>
           <button
             class="navbar-toggler position-relative"

@@ -5,7 +5,7 @@
       style="font-size: 42px; color: DarkCyan;"
     />
     <span class="fs-3 mb-3">
-      NCU Course Finder v6
+      {{ ENV.VITE_APP_TITLE }}
     </span>
     <template v-if="loadingState === 'pending'">
       <h1 class="text-secondary">
@@ -54,6 +54,8 @@ export default {
     const errorMessage = Vue.computed(() => store.state.errorMessage);
 
     return {
+      ENV: import.meta.env,
+
       loadingState,
       errorMessage,
     };
