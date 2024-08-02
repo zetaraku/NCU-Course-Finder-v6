@@ -8,7 +8,7 @@
         <ColCourseType class="me-2" />
         <ColClassNo />
       </div>
-      <div>
+      <div class="d-flex justify-content-center flex-grow-1">
         <ColTitle />
       </div>
       <div>
@@ -23,7 +23,7 @@
       <div>
         <ColFullRate />
       </div>
-      <div class="flex-grow-1 flex-centered mt-3">
+      <div class="flex-centered mt-3">
         <ColClassTime />
       </div>
       <div class="m-0">

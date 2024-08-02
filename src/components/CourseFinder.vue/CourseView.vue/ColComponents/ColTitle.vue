@@ -2,7 +2,7 @@
   <div class="ColTitle flex-centered">
     <span
       v-tooltip="course.title"
-      class="d-inline-block mw-100 text-truncate"
+      class="d-inline-block"
     >
       <a :href="getCourseDetailUrl(course)">
         {{ course.title }}
