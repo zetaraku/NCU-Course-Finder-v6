@@ -7,9 +7,9 @@ import About from '@/components/About.vue';
 import { ErrorPage404, ErrorPage418 } from '@/components/ErrorViews';
 
 const routes = [
-  { path: '/', redirect: { name: 'course-finder' } },
+  { path: '/', name: 'course-finder', component: CourseFinder },
   { path: '/information', name: 'information', component: Information },
-  { path: '/course-finder', name: 'course-finder', component: CourseFinder },
+  { path: '/course-finder', redirect: { name: 'course-finder' } },
   { path: '/my-schedule', name: 'my-schedule', component: MySchedule },
   { path: '/about', name: 'about', component: About },
   { path: '/418', name: 'http-418', component: ErrorPage418 },
