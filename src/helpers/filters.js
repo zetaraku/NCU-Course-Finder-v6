@@ -47,7 +47,7 @@ export function makeFilterOptions({ colleges, departments, courses, selectedClas
       () => [...new Set(Vue.unref(courses).flatMap(course => course.teachers))],
     ),
     classNos: Vue.computed(
-      () => [...new Set(Vue.unref(courses).map(course => course.classNo.slice(0, 6)))],
+      () => [...new Set(Vue.unref(courses).map(course => course.classNo.split('-')[0]))],
     ),
     classTimes: /* unused */ [],
     credits: Vue.computed(

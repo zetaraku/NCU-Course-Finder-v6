@@ -2,9 +2,9 @@ import { DAY_HOURS } from '@/consts';
 
 function makePlaceholders(dayHours) {
   return dayHours.map(
-    ({ i, j, key }) => ({
+    ({ i, j, day, hour, key }) => ({
       serialNo: -(10000 + 100 * i + 1 * j),
-      classNo: `ZZ000${key.replace('-', '')}`,
+      classNo: `ZZ000${day.key}-${hour.key}`,
       title: '【預留時段】',
       credit: 0,
       passwordCard: null,
@@ -26,7 +26,6 @@ function preprocessCourses(courses) {
   courses.push(...makePlaceholders(DAY_HOURS));
 
   for (let course of courses) {
-    course.classNo = `${course.classNo.slice(0, 6)}-${course.classNo.slice(6)}`;
     course.limitCnt = course.limitCnt ?? Infinity;
     course.remainCnt = course.limitCnt - course.admitCnt;
     course.successRate = (100 * course.remainCnt) / (course.waitCnt + 1);
