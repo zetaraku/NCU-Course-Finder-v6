@@ -20,6 +20,7 @@ export default {
     return {
       getCourseDetailUrl(course) {
         if (course.isPlaceholder) return null;
+        if (course.detailUrl) return course.detailUrl;
         return `${COURSE_DETAIL_URL}?crs=${course.serialNo}`;
       },
     };
