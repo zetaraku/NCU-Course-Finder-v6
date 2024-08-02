@@ -25,7 +25,7 @@ export function makeFilterOptions({ colleges, departments, courses, selectedClas
         department => department.collegeId === Vue.unref(filters).collegeId,
       ),
     ),
-    classPrefixes: [
+    classPrefixes: import.meta.env.VITE_NO_CLASS_PREFIX ? [] : [
       { value: 'CC', text: '◆ 通識課程 - 核心必修' },
       { value: 'CC01', text: '◇ 核心必修 - 人文與思想' },
       { value: 'CC02', text: '◇ 核心必修 - 自然科學' },

@@ -34,6 +34,8 @@ function preprocessCourses(courses) {
 }
 
 function computeClassPrefixesMapping(courses) {
+  if (import.meta.env.VITE_NO_CLASS_PREFIX) return new Map();
+
   let classPrefixesMapping = new Map();
 
   for (let course of courses) {
