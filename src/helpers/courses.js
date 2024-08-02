@@ -17,19 +17,19 @@ export function filterCourses(courses, filters) {
     );
   }
   if (filters.title !== '') {
-    const keywords = filters.title.split(/\s+/);
+    const keywords = filters.title.toLowerCase().split(/\s+/);
     results = results.filter(
       course => keywords.some(
-        keyword => course.title.includes(keyword),
+        keyword => course.title.toLowerCase().includes(keyword),
       ),
     );
   }
   if (filters.teachers !== '') {
-    const keywords = filters.teachers.split(/\s+/);
+    const keywords = filters.teachers.toLowerCase().split(/\s+/);
     results = results.filter(
       course => course.teachers.some(
         teacher => keywords.some(
-          keyword => teacher.includes(keyword),
+          keyword => teacher.toLowerCase().includes(keyword),
         ),
       ),
     );
