@@ -82,6 +82,11 @@ export function makeFilterOptions({ colleges, departments, courses, selectedClas
           classTime => Vue.unref(selectedClassTimes).has(classTime),
         ),
       },
+      {
+        value: 'excludeNonMySchedule',
+        html: '排除<b>不在我的課表裡</b>的課程',
+        predicate: course => !(course.selected !== true),
+      },
     ],
   });
 }
