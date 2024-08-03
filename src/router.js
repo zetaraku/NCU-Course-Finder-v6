@@ -16,6 +16,10 @@ const routes = [
   { path: '/:pathMatch(.*)*', name: 'http-404', component: ErrorPage404 },
 ];
 
+if (import.meta.env.VITE_NO_INFORMATION_PAGE) {
+  routes.splice(routes.findIndex(route => route.name === 'information'), 1);
+}
+
 const router = VueRouter.createRouter({
   history: VueRouter.createWebHistory(),
   routes,

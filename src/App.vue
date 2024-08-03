@@ -121,6 +121,10 @@ export default {
       { text: '關於本站', to: { name: 'about' } },
     ];
 
+    if (import.meta.env.VITE_NO_INFORMATION_PAGE) {
+      links.splice(links.findIndex(link => link.to.name === 'information'), 1);
+    }
+
     const closeNavBar = Vue.ref(null);
 
     Vue.onMounted(async () => {
