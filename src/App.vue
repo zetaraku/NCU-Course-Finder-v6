@@ -114,6 +114,13 @@ export default {
     });
     const selectedCourses = Vue.computed(() => store.getters.selectedCourses);
 
+    const links = [
+      { text: '選課說明', to: { name: 'information' } },
+      { text: '課程查詢', to: { name: 'course-finder' } },
+      { text: '我的課表', to: { name: 'my-schedule' }, badgeText: () => selectedCourses.value.length },
+      { text: '關於本站', to: { name: 'about' } },
+    ];
+
     const closeNavBar = Vue.ref(null);
 
     Vue.onMounted(async () => {
@@ -136,12 +143,7 @@ export default {
     return {
       ENV: import.meta.env,
 
-      links: [
-        { text: '選課說明', to: { name: 'information' } },
-        { text: '課程查詢', to: { name: 'course-finder' } },
-        { text: '我的課表', to: { name: 'my-schedule' }, badgeText: () => selectedCourses.value.length },
-        { text: '關於本站', to: { name: 'about' } },
-      ],
+      links,
       selectedCourses,
 
       closeNavBar,
