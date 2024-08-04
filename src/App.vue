@@ -134,11 +134,11 @@ export default {
       );
       closeNavBar.value = () => { bsCollapse.hide(); };
 
-      window.addEventListener('beforeunload', () => {
-        store.dispatch('saveSelectedCourses');
-      });
-
       await store.dispatch('loadCourseData');
+    });
+
+    Vue.watch(selectedCourses, async () => {
+      await store.dispatch('saveSelectedCourses');
     });
 
     Vue.provide('filters', filters);
