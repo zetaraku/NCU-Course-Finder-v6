@@ -115,15 +115,10 @@ export default {
     const selectedCourses = Vue.computed(() => store.getters.selectedCourses);
 
     const links = [
-      { text: '選課說明', to: { name: 'information' } },
       { text: '課程查詢', to: { name: 'course-finder' } },
       { text: '我的課表', to: { name: 'my-schedule' }, badgeText: () => selectedCourses.value.length },
       { text: '關於本站', to: { name: 'about' } },
     ];
-
-    if (import.meta.env.VITE_NO_INFORMATION_PAGE) {
-      links.splice(links.findIndex(link => link.to.name === 'information'), 1);
-    }
 
     const closeNavBar = Vue.ref(null);
 
