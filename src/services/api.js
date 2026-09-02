@@ -2,7 +2,9 @@ import { DAY_HOURS } from '@/consts';
 
 function makePlaceholders(dayHours) {
   return dayHours.map(
-    ({ i, j, day, hour, key }) => ({
+    ({
+      i, j, day, hour, key,
+    }) => ({
       serialNo: -(10000 + 100 * i + 1 * j),
       classNo: `ZZ000${day.key}-${hour.key}`,
       title: '【預留時段】',
@@ -57,7 +59,8 @@ function preprocessDepartments(departments, { courses }) {
 
   for (let department of departments) {
     /* eslint-disable no-param-reassign */
-    department.classPrefixes = Array.from(classPrefixesMapping.get(department.departmentId) ?? new Set());
+    const prefixes = classPrefixesMapping.get(department.departmentId) ?? new Set();
+    department.classPrefixes = Array.from(prefixes);
     /* eslint-enable no-param-reassign */
   }
 }

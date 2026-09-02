@@ -5,7 +5,8 @@
     "dev-public": "vite --host",
     "build": "vite build",
     "preview": "vite preview",
-    "lint": "eslint src/ --ext .js,.vue"
+    "lint": "eslint src/ --ext .js,.vue",
+    "update-data": "node scripts/fetch-data.js"
   },
   "dependencies": {
     "@vueuse/core": "^7.4.0",
