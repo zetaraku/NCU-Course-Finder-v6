@@ -11,6 +11,9 @@
     <div
       class="bg-white rounded-3 shadow-lg w-100 d-flex flex-column border-0"
       style="max-width: 600px; max-height: 92vh;"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="auto-register-modal-title"
     >
       <!-- Header -->
       <div
@@ -24,7 +27,10 @@
             <i class="bi bi-lightning-charge-fill text-white fs-6" />
           </span>
           <div>
-            <h5 class="mb-0 fw-bold text-dark">
+            <h5
+              id="auto-register-modal-title"
+              class="mb-0 fw-bold text-dark"
+            >
               一鍵選課書籤
             </h5>
             <small class="text-secondary">NCU Bookmarklet Auto-Registration</small>
@@ -249,11 +255,20 @@ function formatDateTime(d) {
   return `${y}/${m}/${date} ${h}:${min}`;
 }
 
+function escapeHtml(str) {
+  return String(str || '')
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}
+
 /* eslint-disable no-template-curly-in-string */
 function buildSnippet(courses, createdAtText) {
   const coursesJson = JSON.stringify(courses.map(c => ({
     s: c.serialNo,
-    t: c.title,
+    t: escapeHtml(c.title),
     cr: c.credit || 0,
   })));
 
@@ -265,7 +280,7 @@ function buildSnippet(courses, createdAtText) {
     '  const DELAY = 800;',
     '',
     '  // 1. Handle Portal iframe container',
-    '  if (location.hostname.includes("portal.ncu.edu.tw")) {',
+    '  if (location.hostname === "portal.ncu.edu.tw" || location.hostname.endsWith(".portal.ncu.edu.tw")) {',
     '    let targetUrl = "https://cis.ncu.edu.tw/Course/main/sign/selectCourse";',
     '    const iframes = Array.from(document.querySelectorAll("iframe, frame"));',
     '    const f = iframes.find(el => (el.src || "").includes("/Course/") || (el.src || "").includes("cis.ncu.edu.tw"));',
@@ -276,8 +291,9 @@ function buildSnippet(courses, createdAtText) {
     '    return;',
     '  }',
     '',
-    '  if (!location.hostname.endsWith("ncu.edu.tw")) {',
-    '    alert("[NCU 選課小幫手] 請在中央大學選課系統中使用此書籤。");',
+    '  const isCourseDomain = location.hostname === "cis.ncu.edu.tw" || location.hostname === "course.ncu.edu.tw";',
+    '  if (!isCourseDomain) {',
+    '    alert("[NCU 選課小幫手] 請在中央大學選課系統 (cis.ncu.edu.tw) 或 Portal 頁面中使用此書籤。");',
     '    return;',
     '  }',
     '',

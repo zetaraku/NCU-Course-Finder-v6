@@ -13,6 +13,11 @@
 const fs = require('fs');
 const path = require('path');
 
+if (typeof fetch !== 'function') {
+  console.error('[Error] Node.js 18.0.0 or higher is required to run fetch-data.js (native fetch support).');
+  process.exit(1);
+}
+
 const COURSE_HEADER = {
   'Accept-Language': 'zh-TW,zh;q=0.9,en-US;q=0.8,en;q=0.7',
   'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',

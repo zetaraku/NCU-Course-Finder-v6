@@ -59,7 +59,7 @@ function preprocessDepartments(departments, { courses }) {
 
   for (let department of departments) {
     /* eslint-disable no-param-reassign */
-    let prefixes = classPrefixesMapping.get(department.departmentId) ?? new Set();
+    const prefixes = classPrefixesMapping.get(department.departmentId) ?? new Set();
     department.classPrefixes = Array.from(prefixes);
     /* eslint-enable no-param-reassign */
   }
